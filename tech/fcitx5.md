@@ -26,12 +26,12 @@ vim ~/.xinitrc
 
 add start fcitx5 command on bottom of file
 ```
-fcitx5 -d &
+fcitx5 &
 ```
 
 
 ### set the input method
-```
+```bash
 # dwm run program
 modkey + p
 # search fcitx5-config-tool then add wubi to the input method list
