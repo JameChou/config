@@ -114,11 +114,5 @@ alias vim='nvim'
 
 # configuration
 alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
-alias brnu="sudo brightnessctl --device='intel_backlight' set 5%+"
-alias brnd="sudo brightnessctl --device='intel_backlight' set 5%-"
-alias volu="amixer sset Master 5%+ unmute"
-alias vold="amixer sset Master 5%- unmute"
-alias volmax="amixer sset Master 100% umute"
-alias volm="amixer sset Master mute"
 
 

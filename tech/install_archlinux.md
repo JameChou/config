@@ -168,6 +168,10 @@ vim /etc/default/grub
 
 Remove `quiet` in `GRUB_CMDLINE_LINUX_DEFAULT` and change `log level` from `3` to `5`, add `nowatchdog` parameter.
 
+```bash
+# generate the grub configuration
+grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 ##### Complete installation
 ```bash
@@ -227,9 +231,150 @@ remove `multilib` `#`
 pacman -Syyu
 ```
 
+### NetworkManager
+```bash
+sudo pacman -S networkmanager
+sudo systemctl disable iwd
+sudo systemctl stop iwd
+sudo systemctl enable --now NetworkManager
+```
 
+```bash
+# use networkmanager connect wifi and remember the wifi
+nmcli dev wifi list/show
 
+nmcli dev wifi connect <SSID> --ask
+# enter the password of wifi
 
+nmcli connection modify <SSID> connection.autoconnect yes
+```
+
+### Install yay
+[wiki](https://wiki.archlinuxcn.org/wiki/Yay)
+
+```bash
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+makepkg -si
+```
+
+### Install google-chrome
+```bash
+yay -S google-chrome
+```
+
+### Install clash-verge
+[wiki](https://www.clashverge.dev/install.html)
+```bash
+yay -S clash-verge-rev-bin
+```
+
+We should run `clash-verge-service` before running `clash-verge`.
+
+### Install jetbrains mono
+```bash
+sudo pacman -S ttf-jetbrains-mono
+```
+
+### Install GUI File Manager
+```bash
+sudo pacman -S pcmanfm
+```
+
+### Fcitx5
+start fcitx5 when run dwm.
+
+#### 方法一
+modify `.xsession`
+```
+fcitx5 -d &
+slstatus & # the time status at the right corner of dwm
+exec dwm
+```
+
+#### 方法二
+在上一个小章节上我们已经使用`auto-start`这个patch在dwm启动时可以运行一个shell文件。那么也可以把fcitx5的启动放在那里。
+
+```bash
+fcitx5 -d &
+```
+
+#### Config
+```setting
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+```
+
+### 壁纸 可使用`feh`来设置壁纸 
+```bash
+sudo apt-get install feh
+```
+
+然后在`autostart.sh`中设置显示壁纸的方式。
+```bash
+feh --bg-fill --no-fehbg -z ~/Pictures/wallpapers/* &
+```
+
+### 亮度
+[文档](https://askubuntu.com/questions/1412055/keyboard-backlight-in-ubuntu-22-04)
+在`.zshrc`文件中可以对这里的命令来做别名，方便后续的处理
+
+```bash
+sudo apt-get install brightnessctl
+# 查看当前显示的device信息
+brightnessctl -l
+# 查看说明文档
+man brightnessctl 
+# 设置亮度的百分比
+sudo brightnessctl --device='intel_backlight' set 70%
+# 在当前的亮度上增加5%
+sudo brightnessctl --device='intel_backlight' set 5%+
+# 在当前的亮度上减少5%
+sudo brightnessctl --device='intel_backlight' set 5%-
+```
+
+### 音量
+```bash
+sudo pacman -S sof-firmware alsa-firmware alsa-ucm-conf alsa-utils
+```
+使用`aplay`命令查看现在的音频情况，然后得到下面的信息，可以看到需要对card1 和 device0进行配置
+
+```bash
+aplay -l
+```
+```
+card 1: PCH [HDA Intel PCH], device 0: VT1802 Analog [VT1802 Analog]
+  Subdevices: 0/1
+  Subdevice #0: subdevice #0
+card 1: PCH [HDA Intel PCH], device 1: VT1802 Digital [VT1802 Digital]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: PCH [HDA Intel PCH], device 2: VT1802 Alt Analog [VT1802 Alt Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+对`/etc/asound.conf`或者如果是当前用户进行配置，则在`~/.asoundrc`添加以下三行。
+
+```setting
+defaults.pcm.card 1
+defaults.pcm.device 0
+defaults.ctl.card 1
+```
+
+我们可以使用`amixer`命令来设置音量
+在`.zshrc`文件中可以对这里的命令来做别名，方便后续的处理
+
+```bash
+# 设置音量为90%
+amixer sset Master 90% unmute
+# 音量减少5%
+amixer sset Master 5%- unmute
+# 音量增加5%
+amixer sset Master 5%+ unmute
+```
 
 
 
