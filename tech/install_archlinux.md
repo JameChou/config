@@ -376,6 +376,41 @@ amixer sset Master 5%- unmute
 amixer sset Master 5%+ unmute
 ```
 
+也可以使用可控的界面去对音量进行设置。 
+```bash
+alsamixer
+```
+
+**注意：在这之前我踩了坑，使用了pipewire去管理我的声音，然后一直有问题，使用paman -Rs pipewire等命令之后才可以解决这个问题**
+
+### 安装Wechat
+
+
+### TTL Font
+经过上面的安装之后，我们登录，然后使用命令`startx`来启动`xserver`服务，但是这个字体很小，需要再对这块进行设置
+
+
+First: Install terminus-fonts
+```bash
+sudo pacman -S terminus-font
+
+cd /usr/share/kbd/consolefonts
+# 可以使用滚动查找去看有没有文件
+ll | less
+```
+
+### 临时设置
+Like the install progress at the beginning, use `setfont ter-132b` command to change the font size.
+
+### Always
+```bash
+sudo vim /etc/vconsole.conf
+```
+
+add the below setting:
+```
+FONT=ter-132b
+```
 
 
 
