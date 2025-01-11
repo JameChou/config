@@ -33,6 +33,8 @@ Use `:InstantMarkdownPreview` for  openning the chrome/firefox(default browser) 
 `:InstantMarkdownStop` to stop the preview process & close the tab in borwser.
 
 ### Snippets for Markdown
+Create a new folder called `ftplgin`, `~/.config/nvim`  then create a new file `markdown.vim`, paste the follow lines, restart the nvim.
+
 ```vim
 "autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
 autocmd Filetype markdown inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
@@ -71,3 +73,5 @@ autocmd Filetype markdown inoremap <buffer> ,l --------<Enter>
 | `,4`   | #### H4          |
 | `,l`   | --------         |
 
+`,w` backword the next `<++>`
+`,f` forware the next `<++>`
