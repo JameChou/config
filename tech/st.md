@@ -46,4 +46,5 @@ static Shortcut shortcuts[] = {
 ```
 
 
+### Tranparency
 
