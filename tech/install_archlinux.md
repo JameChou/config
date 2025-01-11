@@ -413,20 +413,12 @@ FONT=ter-132b
 ```
 
 
+### Proxychains
+如果在Terminal中想使用代理的话，可以使用`export ALL_PROXY='http://127.0.0.1:<PORT>'`来设定全局变量。这种情况下，绝大多数的命令都能从代理走流量。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+```bash
+sudo pacman -S proxychains
+```
 
 
 
