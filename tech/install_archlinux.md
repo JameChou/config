@@ -276,6 +276,14 @@ We should run `clash-verge-service` before running `clash-verge`.
 sudo pacman -S ttf-jetbrains-mono
 ```
 
+这个安装完成之后会发现有一些图标还是没有显示出来，我们还需要安装这个字体的`nerd font`。
+
+```bash
+sudo pacman -S tff-jetbrains-mono-nerd
+```
+
+然后再打开`nvim` 这时候就可以看到没有问题了。
+
 ### Install GUI File Manager
 ```bash
 sudo pacman -S pcmanfm
@@ -300,6 +308,7 @@ fcitx5 -d &
 ```
 
 #### Config
+下面的配置文件是放在`/etc/environment`这个文件中。
 ```setting
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
@@ -309,7 +318,11 @@ SDL_IM_MODULE=fcitx
 
 ### 壁纸 可使用`feh`来设置壁纸 
 ```bash
+# in ubuntu
 sudo apt-get install feh
+
+# in archlinux
+sudo pacman -S feh
 ```
 
 然后在`autostart.sh`中设置显示壁纸的方式。
@@ -356,9 +369,9 @@ card 1: PCH [HDA Intel PCH], device 2: VT1802 Alt Analog [VT1802 Alt Analog]
   Subdevice #0: subdevice #0
 ```
 
-对`/etc/asound.conf`或者如果是当前用户进行配置，则在`~/.asoundrc`添加以下三行。
+对`/etc/asound.conf`文件中加入下面的内容，这是对所有的用户都生效，如果是当前用户进行配置，则在`~/.asoundrc`添加以下三行。
 
-```setting
+```
 defaults.pcm.card 1
 defaults.pcm.device 0
 defaults.ctl.card 1
@@ -383,7 +396,11 @@ alsamixer
 
 **注意：在这之前我踩了坑，使用了pipewire去管理我的声音，然后一直有问题，使用paman -Rs pipewire等命令之后才可以解决这个问题**
 
+### 安装系统剪切板
+这里可以参考`nevim.md` 文件，在`LazyVim` 的章节中也讲解了为什么要安装这个，主要就是用于我们可以访问我们的系统剪切板，达到neovim与系统的`ctrl + c` 之间的相互访问。
+
 ### 安装Wechat
+首先第一个我们可以访问下面的官网，然后下载`AppImage` 的形式来加载，然后使用命令`./Wechatxxx` 的方式来打开微信。
 
 
 ### TTL Font
@@ -399,10 +416,10 @@ cd /usr/share/kbd/consolefonts
 ll | less
 ```
 
-### 临时设置
+#### 临时设置
 Like the install progress at the beginning, use `setfont ter-132b` command to change the font size.
 
-### Always
+#### Always
 ```bash
 sudo vim /etc/vconsole.conf
 ```

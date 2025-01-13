@@ -1,10 +1,9 @@
 
 ## xmodmap configuration file
 
-switch caps_lock and control_l
-switch alt_l and super_l
+这里的配置文件主要是用于将`Caps Lock` 键和 `Control` 互换，`Super` 和 `Alt` 键进行互换
 
-
+右`Alt` 键和`目录` 键互负，右`Alt` 键改为`Super` 键。
 
 ```
 clear control

@@ -17,6 +17,9 @@ pacman -S fcitx5 fcitx5-chinese-addons fcitx5-configtool fcitx5-qt
 
 ```bash
 fcitx5 &
+
+# fcitx5 也提供了daemon的方式来运行启动
+fcitx5 -d
 ```
 
 ### start fcitx5 on startx
@@ -26,7 +29,7 @@ vim ~/.xinitrc
 
 add start fcitx5 command on bottom of file
 ```
-fcitx5 &
+fcitx5 -d
 ```
 
 

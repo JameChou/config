@@ -54,6 +54,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 git clone https://github.com/jeffreytse/zsh-vi-mode.git $ZSH_CUSTOM/plugins/zsh-vi-mode
 ```
 
+#### history
+在`plugins` 那行配置代码下我们可以直接添加history这个插件的启用。即
+```
+plugins=(... history ...)
+```
+这样的形式就可以把`history` 这个插件给添加上去了。
+
+同样在`.zshrc` 中，再做一个简单的映射处理就可以了。
+```
+alias his=history
+```
+
+那么可以使用`his` 来显示出所有的历史数据，然后再加上管道的指令来进行查找的操作。在`zsh-vim-mode`下再使用`search` 来查找那个指令，这样的工作流还是不错的。
+
 ### 开启插件
 ```config
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
