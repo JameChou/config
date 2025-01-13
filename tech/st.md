@@ -22,7 +22,6 @@ static char *font = "Mono:pixelsize=12:antialias=false:autohint=false";
 // Change to
 ```
 
-
 ### Shortcut Zoom
 ```c
 static Shortcut shortcuts[] = {
@@ -47,4 +46,5 @@ static Shortcut shortcuts[] = {
 
 
 ### Tranparency
+**现在这里还有一点问题，就是透明度有问题**
 
