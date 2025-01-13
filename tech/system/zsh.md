@@ -76,7 +76,3 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 上面的这段配置表示我们开启了`git`，`zsh-autosuggestions` 等插件。
 
 
-
-
-
-
