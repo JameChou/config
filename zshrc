@@ -70,11 +70,13 @@ ZSH_THEME="amuse"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode history)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
 
 source $ZSH/oh-my-zsh.sh
+
+
 
 # User configuration
 
@@ -115,9 +117,11 @@ bindkey "^T" autosuggest-accept
 # alias
 alias vim='nvim'
 alias ra=ranger
+alias his=history
 
+alias pc4=proxychains4
 
-# configuration
+# set the terminal proxy to link 7897 port
 alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
 
 
