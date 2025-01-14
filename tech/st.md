@@ -46,5 +46,11 @@ static Shortcut shortcuts[] = {
 
 
 ### Tranparency
-**现在这里还有一点问题，就是透明度有问题**
+下载patch
+```bash
+wget st.suckless.org/patches/alpha/st-alpha-20240814-a0274bc.diff
+path -p1 < patches/st-alpha-20240814-a0274bc.diff
+
+sudo make clean install
+```
 
