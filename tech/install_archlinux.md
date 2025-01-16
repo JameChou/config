@@ -420,6 +420,8 @@ FONT=ter-132b
 sudo pacman -S proxychains
 ```
 
+### Crash when updating the system
+
 
 
 

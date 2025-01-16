@@ -89,23 +89,23 @@ runAutostart(void) {
 /bin/bash ~/Software/bin/dwm.script/dwm-status.sh &
 ```
 
-`dwm-status-refresh.sh`
-```bash
-#!/bin/bash
 
-# 死循环，每一段时间再去执行dwm-status-refresh.sh，来刷新状态栏的信息。
-while true
-do
-	bash ./dwm-status-refresh.sh
-	sleep 2
-done
+**在计算上行和下行数据时，脚本里使用了bc命令，在初始化中时并没有安装这个命令，所以需要先安装这个工具** 
+```bash
+# to install the bc tool
+sudo pacman -S bc
 ```
 
-`dwm-status-refresh.sh`
+<++>
 
+`dwm-status-refresh.sh`
 ```bash
 #!/bin/bash
-# 获得已经上网的数据流量
+# Screenshot: http://s.natalian.org/2013-08-17/dwm_status.png
+# Network speed stuff stolen from http://linuxclues.blogspot.sg/2009/11/shell-script-show-network-speed.html
+
+# This function parses /proc/net/dev file searching for a line containing $interface data.
+# Within that line, the first and ninth numbers after ':' are respectively the received and transmited bytes.
 function get_bytes {
 	# Find active network interface
 	interface=$(ip route get 8.8.8.8 2>/dev/null| awk '{print $5}')
@@ -114,6 +114,9 @@ function get_bytes {
 	now=$(date +%s%N)
 }
 
+# Function which calculates the speed using actual and old byte number.
+# Speed is shown in KByte per second when greater or equal than 1 KByte per second.
+# This function should be called each second.
 
 function get_velocity {
 	value=$1
@@ -147,7 +150,7 @@ print_volume() {
 }
 
 print_mem(){
-	memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024))
+	memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024 / 1024))
 	echo -e "$memfree"
 }
 
@@ -195,7 +198,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name "  💿 $(print_mem)M ⬇️ $vel_recv ⬆️ $vel_trans $(dwm_alsa) $(show_record) $(print_date) "
+xsetroot -name "  💿 $(print_mem)G | 上行 $vel_recv | 下行 $vel_trans | $(dwm_alsa) | $(show_record) $(print_date) "
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
