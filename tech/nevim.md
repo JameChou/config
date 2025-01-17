@@ -689,5 +689,24 @@ return {
 }
 ```
 
+#### 与系统的剪切板相互访问
+
+[Ask Ubuntu下有关于这个问题](https://askubuntu.com/questions/1486871/how-can-i-copy-and-paste-outside-of-neovim)
+
+需要安装`xclip` 或 `xcopy`
+
+```bash
+sudo pacman -S xclip
+```
+
+
+在`init.lua` 配置文件中增加这个特性的支持
+```lua
+vim.schedule(function()
+    vim.opt.clipboard = 'unnamedplus'
+end)
+```
+
+
 
 
