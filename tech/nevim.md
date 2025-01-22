@@ -707,6 +707,175 @@ vim.schedule(function()
 end)
 ```
 
+#### 如何安装comment插件
+
+我们这里还是使用`Lazy` 去管理我们的插件
+[numToStr-Comment](https://github.com/numToStr/Comment.nvim) 可以访问这个去看相关的代码
+
+```lua
+return {
+  'numToStr/Comment.nvim',
+  opts = {
+    padding = true,
+    sticky = true,
+    ignore = nil,
+    toggler = {
+      line = 'gcc',
+      block = 'gbc',
+    },
+    -- 注释代码块
+    opleader = {
+      line = 'gc',
+      block = 'gb',
+    },
+
+    extra = {
+      above = 'gc0',
+      below = 'gco',
+      eol = 'gcA',
+    },
+
+    mappings = {
+      basic = true,
+      extra = true,
+    }
+  },
+}
+```
+
+#### NeoVim-Dap调试代码
+**NeoVim-dap插件是用于debug调试用的**
+
+
+#### Winbar
+**Winbar插件是在文件的头部显示整个函数等信息用的**
+
+[winbar neovim的插件地址](https://github.com/Bekaboo/dropbar.nvim)
+
+```lua
+return {
+  'Bekaboo/dropbar.nvim',
+  config = function()
+    local api = require 'dropbar.api'
+    vim.keymap.set('n', '<Leader>;', api.pick)
+    vim.keymap.set('n', '[c', api.goto_context_start)
+    vim.keymap.set('n', ']c', api.select_next_context)
+
+    local confirm = function()
+      local menu = api.get_current_dropbar_menu()
+      if not menu then
+        return
+      end
+      local cursor = vim.api.nvim_win_get_cursor(menu.win)
+      local component = menu.entries[cursor[1]]:first_clickable(cursor[2])
+      if component then
+        menu:click_on(component)
+      end
+    end
+
+    local quit_curr = function()
+      local menu = api.get_current_dropbar_menu()
+      if menu then
+        menu:close()
+      end
+    end
+
+    require('dropbar').setup {
+      menu = {
+        -- When on, automatically set the cursor to the closest previous/next
+        -- clickable component in the direction of cursor movement on CursorMoved
+        quick_navigation = true,
+        ---@type table<string, string|function|table<string, string|function>>
+        keymaps = {
+          ['<LeftMouse>'] = function()
+            local menu = api.get_current_dropbar_menu()
+            if not menu then
+              return
+            end
+            local mouse = vim.fn.getmousepos()
+            if mouse.winid ~= menu.win then
+              local parent_menu = api.get_dropbar_menu(mouse.winid)
+              if parent_menu and parent_menu.sub_menu then
+                parent_menu.sub_menu:close()
+              end
+              if vim.api.nvim_win_is_valid(mouse.winid) then
+                vim.api.nvim_set_current_win(mouse.winid)
+              end
+              return
+            end
+            menu:click_at({ mouse.line, mouse.column }, nil, 1, 'l')
+          end,
+          ['<CR>'] = confirm,
+          ['i'] = confirm,
+          ['<esc>'] = quit_curr,
+          ['q'] = quit_curr,
+          ['n'] = quit_curr,
+          ['<MouseMove>'] = function()
+            local menu = api.get_current_dropbar_menu()
+            if not menu then
+              return
+            end
+            local mouse = vim.fn.getmousepos()
+            if mouse.winid ~= menu.win then
+              return
+            end
+            menu:update_hover_hl { mouse.line, mouse.column - 1 }
+          end,
+        },
+      },
+    }
+  end,
+}
+```
+
+然后在`neovim` 的配置文件中将这个模块引进去。
+```lua
+require 'shinn.plugins.winbar'
+```
+
+| 快捷键    | 作用                                       |
+|-----------|--------------------------------------------|
+| <leader>; | 是选中上面的菜单，然后进行编码`a` `b` 等等 |
+| [c        | 是到这块区域的最上部                       |
+| ]c        | 展开同层的代码区域                         |
+
+#### ctags
+原有的ctags已经不在支持了，这里需要安装universal-ctags这是原有的版本继承而来的
+
+[universal-ctags](https://github.com/universal-ctags/ctags?tab=readme-ov-file)
+
+```bash
+git clone https://github.com/universal-ctags/ctags
+cd ctags
+./autogen.sh
+./configure
+sudo make clean install
+```
+
+#### Vista 函数列表
+
+[github下的Vista插件是可以对当前的一些函数和属于进行显示的](https://github.com/liuchengxu/vista.vim) 
+
+```lua
+local M = {}
+
+-- 这里进行了一下展示写法
+M.Config = {
+  'liuchengxu/vista.vim',
+
+  -- config这个函数是会在引入之后执行操作
+  config = function()
+    vim.g.vista_icon_indent = { '╰─▸ ', '├─▸ ' }
+    vim.g.vista_default_executive = 'ctags'
+
+    -- 这里是进行改键把快捷键改为T toggle对文件的结构进行展示操作
+    vim.keymap.set('n', 'T', '<cmd>Vista!!<CR>')
+  end,
+}
+
+return M
+```
+
 
 
 
