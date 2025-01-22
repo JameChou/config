@@ -72,6 +72,8 @@ ZSH_THEME="amuse"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -104,12 +106,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+export EDITOR=nvim
+
 bindkey -v
 bindkey -r "^T"
 bindkey "^T" autosuggest-accept
 
 # alias
 alias vim='nvim'
+alias ra=ranger
 
 
 # configuration
