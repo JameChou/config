@@ -869,7 +869,8 @@ M.Config = {
     vim.g.vista_default_executive = 'ctags'
 
     -- 这里是进行改键把快捷键改为T toggle对文件的结构进行展示操作
-    vim.keymap.set('n', 'T', '<cmd>Vista!!<CR>')
+    -- 注意：如果我们想对这个快捷键进行描述，可以使用desc这个属性来传入一个对象
+    vim.keymap.set('n', 'T', '<cmd>Vista!!<CR>', { desc = '[T]oggle tags'})
   end,
 }
 
