@@ -60,7 +60,7 @@ print_temp(){
 #!/bin/bash
 
 print_date(){
-	date '+%Y年%m月%d日 %H:%M'
+	date '+%Y-%m-%d %H:%M'
 }
 
 show_record(){
@@ -73,7 +73,7 @@ show_record(){
 
 LOC=$(readlink -f "$0")
 DIR=$(dirname "$LOC")
-export IDENTIFIER="unicode"
+export IDENTIFIER=""
 
 #. "$DIR/dwmbar-functions/dwm_transmission.sh"
 #. "$DIR/dwmbar-functions/dwm_cmus.sh"
@@ -96,7 +96,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name "  💿 $(print_mem)M 下行 $vel_recv 下行 $vel_trans $(dwm_alsa) $(show_record) $(print_date) "
+xsetroot -name "  MEM: $(print_mem)M | DOWN: $vel_recv UP: $vel_trans | $(dwm_alsa) $(show_record) $(print_date) "
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes

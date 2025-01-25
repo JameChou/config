@@ -115,7 +115,8 @@ xrandr --output HDMI-1 --auto --left-of eDP-1
 xrandr --output eDP-1 --auto --scale 1.1x1.1 
 ```
 
-这个缩放的显示效果还是不错的。
+TODO: 这里还是需要再完善一下，再去探究一下为什么会这样。
+经过实验这种形式在`dmenu` 上面汉字在显示的时候特别的小，真的非常不舒服。如果采用`xrdp` 不知道这种情况会不会有所改善。
 
 ### DWM多屏的配置
 [DWM suckless.org](https://dwm.suckless.org/multi-monitor/) 

@@ -33,3 +33,10 @@ add `picom -b` to `.xinitrc`
 Please check the file `./st.md`.
 
 
+### 使用体验
+
+从使用体验上来讲，还是不错的，这个版本还提供了动画效果。
+
+我在`dell xps 9550` 上面接两个4K显示器时，明显感觉到在`st` 这个terminal上使用时会有非常让人难受的延时应该是显卡的能力并没有跟上。
+
+
