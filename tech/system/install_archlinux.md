@@ -437,8 +437,30 @@ FONT=ter-132b
 sudo pacman -S proxychains
 ```
 
+安装完成之后还需要再`/etc/proxychains.conf` 中对代理的地址和端口进行配置。
+
+```
+[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to "tor"
+socks5 	127.0.0.1 7897
+```
+
+注意`socks5 127.0.0.1 7892` 这是我的`sock5` 代理地址，也可以配置为`http` 等代码信息，对于`clash verge` 已经做了**混合** 端口的配置。
+
 ### Crash when updating the system
+这是一次比较有意思的事情，我的笔记本电池已经**dead** 了，有一次我在使用`pacman -Syyu` 命令滚动更新我的系统的时候，一个小朋友不小心把我的电源线给踢到了然后整个系统就断电了，而且更新里面还有`nvidia dkms` 的闭源驱动，更新正在重新写入系统参数。当我重新开机发现`grub` 也没有了，我的内核也损坏了。
 
+解决方案是可以从`ArchLinux`的`LiveCD` 再次进入
 
+```bash
+mount /dev/sda1 /mnt
+
+pacstrap /mnt linux linux-firmware
+```
+重新安装内核，再使用`arch-chroot /mnt`进入系统，修复`grub` 引导。
+
+这种可以挽回一些重要资料，系统还是可以比较正常使用的，可能是因为事情发生的节点正好在更新`nvidia` 驱动的时候。所以`nvidia-smi` 原来可以读到我的驱动程序的，但是后来就再也读不到了。我也尝试再去删除我的内核参数配置也没有办法生效。
 
 
