@@ -99,6 +99,7 @@ xrdb -merge ~/.Xresources
 
 ```bash
 xrandr --output HDMI-1 --auto --left-of eDP-1
+
 ```
 
 上面的命令就是将`HDMI`的显示接口放在`eDP-1` 的左侧，并且增加了`--auto` 参数自动化设置分辨率和刷新率等信息。
@@ -107,6 +108,14 @@ xrandr --output HDMI-1 --auto --left-of eDP-1
 
 特殊的一些配置是如果是想使用**镜像** 模式的时候需要添加参数`--same-as`。
 
+### 高分辨率下的显示
+我现在这个电脑是4K显示分辨率，如果想要显示效果比较好，那么就需要进行缩放即`scaling`。
+
+```bash
+xrandr --output eDP-1 --auto --scale 1.1x1.1 
+```
+
+这个缩放的显示效果还是不错的。
 
 ### DWM多屏的配置
 [DWM suckless.org](https://dwm.suckless.org/multi-monitor/) 

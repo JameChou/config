@@ -47,11 +47,17 @@ if [ -d $xinitdir/xinitrc.d ] ; then
  unset f
 fi
 
-# xmodmap to load the keyboard configuration file
+# xrdb scaling resoluation
+# xrdb -merge ~/.Xresources
+
+# keyboard layout
 xmodmap ~/.xmodmap &
 
-# load fcitx5
+# fcitx5 input method
 fcitx5 -d
 
+# monitor configuration
+xrandr --output eDP-1 --auto --scale 1.1x1.1 
 
+# startup the dwm window manager
 exec dwm
