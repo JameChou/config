@@ -99,3 +99,39 @@ sudo pacman -S bc
 
 这个文件`dwm-status-refresh.sh`是对状态栏进行刷新操作的`shell`。
 
+
+### emoji以及字体设置,
+
+```bash
+sudo pacman -S noto-fonts-emoji
+```
+上面指令是安装`emoji` 字体。
+
+
+更改`dwm` 下的`drw.c` 把彩色字体的判断给注释掉:
+```c
+
+FcBool iscol;
+if(FcPatternGetBool(xfont->pattern, FC_COLOR, 0, &iscol) == FcResultMatch && iscol) {
+	XftFontClose(drw->dpy, xfont);
+	return NULL;
+}
+
+```
+
+```c
+static const char *fonts[] = {"monospace:size=10",
+                                "WenQuanYi Zen Hei Mono:size=10:antialias=true:authohint=true",
+                                "JoyPixels:size=10:antialias=true:autohint=true"};
+static const char dmenufont[] = "JetBrainsMono Nerd Font Mono:size=10";
+```
+
+我们更改字体成这种形式，其中`static const char *fonts[]` 可以指定多个字体，这里我进行了实验，在高分屏下:
+```c
+static const char *fonts[] = {"JetBrainsMono Nerd Font Mono", ....}
+```
+
+这样的情况下因为`JetBrainsMono`本身是有中文的，在高分屏下进行缩放的时候并不能正确的显示。所以我使用了第一种方案即: 使用`monospace` 这个字体，因为这个字体里并没有中文字体库，那么后续的时候才会再往下找到中文字体库`WenQuanYi` 这个字体，就可以对中文字体高分缩放。 
+
+
+

@@ -745,6 +745,7 @@ return {
 
 #### NeoVim-Dap调试代码
 **NeoVim-dap插件是用于debug调试用的**
+详细可以看查看`./dap.md`
 
 
 #### Winbar
