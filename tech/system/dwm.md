@@ -1,5 +1,12 @@
 ## DWM Installation Guide
-[[toc]]
+
+   * [DWM Installation Guide](#dwm-installation-guide)
+      * [Download the repo](#download-the-repo)
+      * [Install Xorg](#install-xorg)
+         * [How to use dwm on ubuntu](#how-to-use-dwm-on-ubuntu)
+      * [Network Manager](#network-manager)
+      * [status](#status)
+      * [emoji以及字体设置,](#emoji以及字体设置)
 
 ### Download the repo
 这个是官方的库，这个库还没有相关的配置，如果想使用`github` 上自己的配置可以先加载出来，因为要使用`proxychains4`工具去从`github` 上把自身的库给加载进来。

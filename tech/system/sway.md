@@ -1,5 +1,18 @@
 ## Sway
 
+   * [Sway](#sway)
+      * [安装必备的包](#安装必备的包)
+         * [安装基础包](#安装基础包)
+         * [安装menu管理器](#安装menu管理器)
+         * [安装模拟Terminal](#安装模拟terminal)
+         * [安装StatusBar-&gt;waybar](#安装statusbar-waybar)
+         * [安装XWayland](#安装xwayland)
+      * [一些软件配置](#一些软件配置)
+         * [按钮互换](#按钮互换)
+         * [fcitx5](#fcitx5)
+         * [Chrome](#chrome)
+         * [截图等工具的使用](#截图等工具的使用)
+
 ![Sway软件截图](./images/sway-screenshot.png)
 
 Sway是一个类似<b>[i3](https://i3wm.org/)</b>的平铺式窗口管理软件。他是运行在`Wayland` 环境下的，而`i3` 则是`xorg`下的*平铺窗口管理器*。

@@ -1,5 +1,7 @@
 ## NeoTree
-[[toc]]
+
+   * [NeoTree](#neotree)
+      * [Shortcuts|Mappings](#shortcutsmappings)
 
 这个笔记主要是介绍一个`NeoTree` 在`NeoVim` 中是如何使用的以及一些我们主要使用的快捷键。
 

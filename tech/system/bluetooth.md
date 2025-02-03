@@ -1,5 +1,9 @@
 ## Bluetooth Configuration
-[[toc]]
+
+   * [Bluetooth Configuration](#bluetooth-configuration)
+      * [Install the BCM driver firmware](#install-the-bcm-driver-firmware)
+      * [Start Bluetooth Service](#start-bluetooth-service)
+      * [Install bluetooth util](#install-bluetooth-util)
 
 ### Install the BCM driver firmware
 ```bash

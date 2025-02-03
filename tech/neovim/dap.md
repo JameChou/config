@@ -1,6 +1,8 @@
 ## DAP调试
-[[toc]]
 
+   * [DAP调试](#dap调试)
+      * [Lua配置](#lua配置)
+      * [C++调试](#c调试)
 
 NeoVim安装Dap插件
 这是插件列表

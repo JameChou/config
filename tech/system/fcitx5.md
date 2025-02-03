@@ -1,6 +1,13 @@
 ## Fcitx5 Configuration
-[[toc]]
 
+   * [Fcitx5 Configuration](#fcitx5-configuration)
+      * [Installation](#installation)
+      * [Integriate with the dwm](#integriate-with-the-dwm)
+      * [start fcitx5 on startx](#start-fcitx5-on-startx)
+      * [set the input method](#set-the-input-method)
+      * [与系统的语言的配置关系](#与系统的语言的配置关系)
+      * [配置皮肤](#配置皮肤)
+      * [configtool 配置文件所在位置](#configtool-配置文件所在位置)
 
 ### Installation
 ```bash

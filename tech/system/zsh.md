@@ -1,5 +1,16 @@
 ## 如何配置ZSH
-[[toc]]
+
+   * [如何配置ZSH](#如何配置zsh)
+      * [有用的工具fzf](#有用的工具fzf)
+      * [安装](#安装)
+         * [更改用户默认的Shell](#更改用户默认的shell)
+         * [使用Oh-my-zsh来美化和配置Zsh](#使用oh-my-zsh来美化和配置zsh)
+      * [添加plugins](#添加plugins)
+         * [提示(zsh-autosuggestions)](#提示zsh-autosuggestions)
+         * [语法高亮(zsh-syntax-highlighting)](#语法高亮zsh-syntax-highlighting)
+         * [Vim模式(zsh-vi-mode)](#vim模式zsh-vi-mode)
+         * [history](#history)
+      * [开启插件](#开启插件)
 
 这个文件主要是用于说明我是如何配置`ZSH` 的。
 
