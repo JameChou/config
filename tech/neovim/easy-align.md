@@ -1,4 +1,5 @@
 ## Easy Align
+[[toc]]
 [Easy Align Github](https://github.com/junegunn/vim-easy-align) 
 
 ### 配置

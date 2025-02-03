@@ -1,4 +1,5 @@
 ## Fcitx5 Configuration
+[[toc]]
 
 
 ### Installation

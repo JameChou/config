@@ -1,4 +1,5 @@
 ## Picom 设置
+[[toc]]
 
 ### Installation
 

@@ -1,4 +1,5 @@
 ## Bluetooth Configuration
+[[toc]]
 
 ### Install the BCM driver firmware
 ```bash

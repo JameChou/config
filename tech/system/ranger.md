@@ -1,4 +1,7 @@
 ## Ranger的配置和使用
+[[toc]]
+
+![ranger的配置截图](./images/ranger-screenshot.png)
 
 Ranger是一个命令行下的文件管理器，快捷也好用，这个文档主要是记录一下自己在使用过程中的配置过程。作为一个简单的笔记。
 
@@ -17,7 +20,7 @@ sudo pacman -S ranger
 | h,l     | 左右两个键是对现在文件夹的上下目录进行游览     |
 
 ### 配置
-将我们当前的配置生成配置文件，这些配置文件会放置在`~/.config` 目录下。
+a我们当前的配置生成配置文件，这些配置文件会放置在`~/.config` 目录下。
 ```bash
 ranger --copy-config=all
 ```
@@ -48,10 +51,21 @@ set colorscheme jungle
 set show_hidden true
 ```
 
-### 图片预览工具
+##  图片预览工具
+
+[Github上关于预览工具](https://github.com/ranger/ranger/wiki/Image-Previews) 
+
 ```bash
-sudo pacman -S w3m-img
+sudo pacman -S w3m
 ```
+
+这里是w3m，一个`terminal` 下的浏览器工具，文本式的。
+
+然后在配置文件中要对预览给配置上。
+> Add the line `set preview_images true` to your `~/.config/ranger/rc.conf`.
+
+上面的配置在`foot` 下面并不成功。后面再去尝试开启更改这块内容吧。
+
 
 
 

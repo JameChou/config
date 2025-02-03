@@ -1,4 +1,5 @@
 ## Markdown Configuration in NeoVim
+[[toc]]
 
 ### Install Markdown Preview Plugin for NeoVim
 

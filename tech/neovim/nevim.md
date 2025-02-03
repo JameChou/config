@@ -1,5 +1,5 @@
 ## NeoVim 配置学习
-![TOC]
+[[toc]]
 
 ### lua-vim-variables
 

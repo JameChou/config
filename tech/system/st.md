@@ -1,4 +1,5 @@
 ## St Terminal Configuration
+[[toc]]
 
 [Check the ArchLinux wiki about st doc](https://wiki.archlinux.org/title/St)
 

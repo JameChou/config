@@ -1,5 +1,5 @@
 ## 影音娱乐以及录屏
-
+[[toc]]
 
 在ArchLinux下，如果我想去播放视频以及音乐的话，可以安装下面几个软件。
 
@@ -19,13 +19,16 @@ sudo pacman -S mpv
 sudo pacman -S obs-studio
 ```
 
-### 音乐
+### Music
 
 [ArchLinux Studio娱乐影音的指导文章](https://archlinuxstudio.github.io/ArchLinuxTutorial/#/play&office/media)
 
-```bash
-yay -S yesplaymusic
-```
+[FeelUOwn](https://github.com/feeluown/FeelUOwn) 这款音乐播放器是`python` 编写的，与其他的一些软件播放器比较来看(electron)编写的，效率上要好一点，另外对于输入法一类的都还是不错的。
 
-<!--下面这个解释需要尽快解决-->
-那么这个软件有一个问题就是，当我使用`dwm` 时，使用`Mod+Shift+c`这个去杀死进程的时候并不起作用，还是比较烦的。
+```bash
+# 安装FeelUOwn 音乐播放器
+yay -S feeluown
+
+# 安装网易云音乐插件
+yay -S feeluown-netease
+```

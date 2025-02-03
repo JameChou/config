@@ -1,4 +1,5 @@
 ## Install ArchLinux Guide
+[[toc]]
 
 ### How to Make A Bootable UEFI USB  Device
 
@@ -258,10 +259,18 @@ cd yay-bin
 makepkg -si
 ```
 
+yay的问题在于因为使用了`go` 语言进行开发，所以对于`proxychains` 这类的代理链软件支持并不友好。所以还是使用`paru` 来作为包管理还是不错的。
+
+### Install Paru
+```bash
+yay -S paru-bin
+```
+
 ### Install google-chrome
 ```bash
 yay -S google-chrome
 ```
+
 
 ### Install clash-verge
 [wiki](https://www.clashverge.dev/install.html)
@@ -429,6 +438,15 @@ add the below setting:
 FONT=ter-132b
 ```
 
+### 影音多媒体的一些软件
+
+这个管理工具是在`terminal` 下可以直接查看图片，左右移动也是按照`vim`的快捷键来的。
+
+[imv的package包地址](https://archlinux.org/packages/extra/x86_64/imv/)
+**图片类**
+```bash
+sudo pacman -S imv
+```
 
 ### Proxychains
 如果在Terminal中想使用代理的话，可以使用`export ALL_PROXY='http://127.0.0.1:<PORT>'`来设定全局变量。这种情况下，绝大多数的命令都能从代理走流量。

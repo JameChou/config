@@ -1,4 +1,6 @@
-## Swap安装
+## Sway
+
+![Sway软件截图](./images/sway-screenshot.png)
 
 Sway是一个类似<b>[i3](https://i3wm.org/)</b>的平铺式窗口管理软件。他是运行在`Wayland` 环境下的，而`i3` 则是`xorg`下的*平铺窗口管理器*。
 
@@ -37,7 +39,9 @@ sudo pacman -S foot
 
 其配置文件在`~/.config/foot/foot.ini`下。
 
-* 安装StatusBar
+#### 安装StatusBar->waybar
+
+![waybar-screenshot](./images/waybar-screenshot.png)
 
 在默认的情况下，`swaybar` 是默认的状态栏显示器，不过比较丑，功能也比较少，那么我们可以使用`waybar`来显示。
 
@@ -148,3 +152,31 @@ google-chrome-stable --ozone-platform=wayland --enable-features=ozone --enable-w
 --wayland-text-input-version=3
 ```
 
+#### 截图等工具的使用
+
+[ArchLinux 对于截图的wiki文档](https://wiki.archlinux.org/title/Screen_capture)
+
+```bash
+sudo pacman -S extra/sway-contrib
+```
+
+然后再对`sway` 进行配置，配置对应的快捷键，再进行截图。 
+
+```conf
+# 使用Print键对整个区域进行截图
+bindsym Print exec grim
+```
+其中我们可以使用`slurp` 来进行截图
+
+```bash
+# 对一个可选区域进行截图，这种方式会增加一个timestamp名称，并储存在 ~目录下
+slurp | grim
+
+# 对一个区域进行截图，指定名称并且存储在 ~/Pictures/ 下
+slurp | grim -g - scrrenshot.png
+```
+
+```conf
+bindsym $mod+Shift+p exec slurp | grim
+```
+上面的配置表示使用快捷键`Super+Shfit+p` 对一块区域进行截图操作。
