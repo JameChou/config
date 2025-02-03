@@ -707,6 +707,15 @@ vim.schedule(function()
 end)
 ```
 
+--------
+上面的这种方式是`xorg` 上的剪切板，而在`Wayland + sway` 有更好的解决方案，可以使用。
+
+[archlinux wl-clipboard manual page](https://man.archlinux.org/man/wl-clipboard.1.en)
+
+```bash
+sudo pacman -S wl-clipboard chiphist
+```
+
 #### 如何安装comment插件
 
 我们这里还是使用`Lazy` 去管理我们的插件
