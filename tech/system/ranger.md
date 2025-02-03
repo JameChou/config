@@ -32,7 +32,21 @@ ranger --copy-config=all
 | commands.py |                    使用`:` 加载的命令                    |
 |  rifle.conf | applications used when a given type of file is launched. |
 
+#### 更改主题
+在`~/.config/ranger/rc.conf`文件下面可以对下面的配置进行更改
 
+```
+# 设置主题为 jungle
+set colorscheme jungle
+```
+
+#### 显示隐藏的文件
+同样的还是对`~/.config/ranger/rc.conf`这个文件进行编辑
+
+```
+# 更改把隐藏的文件默认都显示出来
+set show_hidden true
+```
 
 ### 图片预览工具
 ```bash
