@@ -47,17 +47,13 @@ if [ -d $xinitdir/xinitrc.d ] ; then
  unset f
 fi
 
-# xrdb scaling resoluation
-# xrdb -merge ~/.Xresources
+xrdb -merge ~/.Xresources
 
-# keyboard layout
 xmodmap ~/.xmodmap &
 
 # fcitx5 input method
 fcitx5 -d
 
-# monitor configuration
-xrandr --output eDP-1 --auto --scale 1.1x1.1 
-
-# startup the dwm window manager
+xrandr --output eDP-1 --auto --mode 3840x2160 --primary
+xrandr --output DP-1 --auto --mode 3840x2160 --left-of eDP-1
 exec dwm

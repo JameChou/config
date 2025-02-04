@@ -16,12 +16,13 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu wmenu-run -f "JetBrains Mono light 12" -i -N 191919 -S 6f3f89 -s ffffff -M 6f3f89 -m ffffff | xargs swaymsg exec --
+# set $menu wmenu-run
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Pictures/wallpapers/mountain.jpeg fill
+output * background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 #
 # Example configuration:
 #
@@ -60,6 +61,11 @@ input type:keyboard {
     xkb_variant ,nodeadkeys
     xkb_options altwin:swap_lalt_lwin,ctrl:swapcaps
 }
+
+input "type:touchpad" tap disabled
+input "type:touchpad" events enabled
+bindsym $mod+backslash input "type:touchpad" tap enabled, exec notify-send -u low -r 242 "tap enabled"
+bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-send -u low -r 242 "tap disabled"
 
 ### Key bindings
 #
@@ -234,6 +240,7 @@ bar {
 
 # to startup the fcitx5 input method
 exec_always --no-startup-id  fcitx5 -d
+exec_always swaymsg seat - cursor set 9999 9999
 
 
 client.focused		        #9962b7 #9962b7 #f1f1f1 #e6da00

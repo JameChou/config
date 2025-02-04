@@ -193,3 +193,17 @@ slurp | grim -g - scrrenshot.png
 bindsym $mod+Shift+p exec slurp | grim
 ```
 上面的配置表示使用快捷键`Super+Shfit+p` 对一块区域进行截图操作。
+
+#### 使用壁纸
+需要使用到一个包`swaybg`
+
+```bash
+sudo pacman -S swaybg
+```
+
+然后在`~/.config/sway/config` 中添加下面的命令可以设置壁纸
+```conf
+output * background ~/Pictures/wallpapers/wallpaper1.jpg fill
+```
+
+
