@@ -1,34 +1,24 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
 set $term foot
-# Your preferred application launcher
 set $menu wmenu-run -f "JetBrains Mono light 12" -i -N 191919 -S 6f3f89 -s ffffff -M 6f3f89 -m ffffff | xargs swaymsg exec --
 # set $menu wmenu-run
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * background ~/Pictures/wallpapers/wallpaper3.jpeg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 background ~/Pictures/wallpapers/wallpaper2.jpg fill
+
+output DP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
+output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 
 ### Idle configuration
 #
@@ -44,18 +34,6 @@ output * background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 input type:keyboard {
     xkb_layout us
     xkb_variant ,nodeadkeys
@@ -71,27 +49,19 @@ bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-sen
 #
 # Basics:
 #
-    # Start a terminal
     bindsym $mod+Shift+Return exec $term
-
-    # Kill focused window
     bindsym $mod+Shift+c kill
 
     # Start your launcher
     bindsym $mod+p exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
     floating_modifier $mod normal
 
     # Reload the configuration file
     bindsym $mod+Shift+q reload
 
-    # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
 #
 # Moving around:
 #
@@ -143,12 +113,20 @@ bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-sen
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+#
+# Multi Monitor
+    # bindsym $mod+comma workspace prev_on_output
+    # bindsym $mod+period workspace next_on_output
+    bindsym $mod+Shift+comma move container to workspace prev_on_output
+    bindsym $mod+Shift+period move container to workspace next_on_output
+
+    bindsym $mod+comma focus output left
+    bindsym $mod+period focus output right
+
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
     bindsym $mod+b splith
     bindsym $mod+v splitv
 
@@ -171,23 +149,13 @@ bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-sen
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
@@ -203,7 +171,9 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
+
 #
 # Utilities:
 #
@@ -226,21 +196,10 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
     swaybar_command waybar
-
-    #colors {
-    #    statusline #ffffff
-    #    background #323232
-    #    inactive_workspace #32323200 #32323200 #5c5c5c
-    #}
 }
 
 # to startup the fcitx5 input method
-exec_always --no-startup-id  fcitx5 -d
-exec_always swaymsg seat - cursor set 9999 9999
 
 
 client.focused		        #9962b7 #9962b7 #f1f1f1 #e6da00
@@ -253,5 +212,12 @@ titlebar_padding 1
 titlebar_border_thickness 0
 #default_border pixel 1
 for_window [class=".*"] border pixel 1
+
+#
+# Always exec
+# 
+
+exec_always --no-startup-id  fcitx5 -d
+exec_always swaymsg seat - cursor set 9999 9999
 
 include /etc/sway/config.d/*
