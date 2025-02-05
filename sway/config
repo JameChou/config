@@ -24,10 +24,10 @@ output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -116,14 +116,14 @@ bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-sen
 
 #
 # Multi Monitor
-    # bindsym $mod+comma workspace prev_on_output
-    # bindsym $mod+period workspace next_on_output
-    bindsym $mod+Shift+comma move container to workspace prev_on_output
-    bindsym $mod+Shift+period move container to workspace next_on_output
-
     bindsym $mod+comma focus output left
     bindsym $mod+period focus output right
-
+    # bindsym $mod+comma workspace prev_on_output
+    # bindsym $mod+period workspace next_on_output
+    # bindsym $mod+Shift+comma move container to workspace prev_on_output
+    # bindsym $mod+Shift+period move container to workspace next_on_output
+    bindsym $mod+Shift+comma [con_id=__focused__] move container to output left, focus
+    bindsym $mod+Shift+period [con_id=__focused__] move container to output right, focus
 #
 # Layout stuff:
 #

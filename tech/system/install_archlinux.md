@@ -489,6 +489,8 @@ FONT=ter-132b
 
 ### 影音多媒体的一些软件
 
+* **图片类软件** 
+
 这个管理工具是在`terminal` 下可以直接查看图片，左右移动也是按照`vim`的快捷键来的。
 
 [imv的package包地址](https://archlinux.org/packages/extra/x86_64/imv/)
@@ -496,6 +498,28 @@ FONT=ter-132b
 ```bash
 sudo pacman -S imv
 ```
+
+现在更推荐的是使用`swayimg`
+```bash
+sudo pacman -S swayimg
+```
+
+配置文件在`~/.config/swayimg/config` 
+
+* **视频类**
+可以使用`mpv` 这款轻量级的应用。
+```bash
+sudo pacman -S mpv
+```
+
+* **电子书类**
+使用`zathura`，[ArchLinux Wiki](https://wiki.archlinux.org/title/Zathura)
+
+```bash
+sudo pacman -S zathura zathura-pdf-mupdf
+```
+
+配置文件的位置在`~/.config/zathura/zathurarc`，通过配置完全可以使用`vim`的配置来浏览。
 
 ### Proxychains
 如果在Terminal中想使用代理的话，可以使用`export ALL_PROXY='http://127.0.0.1:<PORT>'`来设定全局变量。这种情况下，绝大多数的命令都能从代理走流量。

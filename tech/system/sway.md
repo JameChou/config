@@ -224,5 +224,32 @@ sudo pacman -S dunst
 
 配置文件的位置在`~/.config/dunst/dunstrc` 
 
+#### 多显示器操作
+
+```conf
+output DP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
+output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
+```
+
+上面的示例表示多显示器下的配置。
+
+* **位置**
+
+可以使用`position` 后面跟像素的坐标，如像素坐标为: `0,0` 表示位置在左侧，如果想要右侧，比如笔记本的显示器分辨率是`1920x1080` 那么配置就是`position 1980,0`
+
+* **缩放** 
+
+可以使用`scale` 来配置，如我这里的就是缩放`scale 2`
+
+```conf
+ bindsym $mod+Shift+comma [con_id=__focused__] move container to output left, focus
+ bindsym $mod+Shift+period [con_id=__focused__] move container to output right, focus
+```
+
+上面的配置表示可以将一个`app` 移动到左侧的屏幕并且*focus* 到新移动的位置。[Reddit上的解决方案帖子](https://www.reddit.com/r/swaywm/comments/hd9r4e/how_to_move_workspace_to_another_window/)。
+
+
+
+
 
 
