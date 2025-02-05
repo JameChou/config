@@ -1,5 +1,6 @@
 ## Sway
 
+<!--ts-->
    * [Sway](#sway)
       * [安装必备的包](#安装必备的包)
          * [安装基础包](#安装基础包)
@@ -12,6 +13,10 @@
          * [fcitx5](#fcitx5)
          * [Chrome](#chrome)
          * [截图等工具的使用](#截图等工具的使用)
+         * [使用壁纸](#使用壁纸)
+         * [使用消息管理器](#使用消息管理器)
+
+<!--te-->
 
 ![Sway软件截图](./images/sway-screenshot.png)
 
@@ -205,5 +210,19 @@ sudo pacman -S swaybg
 ```conf
 output * background ~/Pictures/wallpapers/wallpaper1.jpg fill
 ```
+
+#### 使用消息管理器
+
+在`sway` 中当我们需要有一个消息通知的时候，可以使用`dunst` 这个包进行管理。
+
+[Dunst Wiki](https://wiki.archlinux.org/title/Dunst)
+
+```bash
+# to install the dunst package
+sudo pacman -S dunst
+```
+
+配置文件的位置在`~/.config/dunst/dunstrc` 
+
 
 

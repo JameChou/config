@@ -1,5 +1,6 @@
 ## NeoVim 配置学习
 
+<!--ts-->
    * [NeoVim 配置学习](#neovim-配置学习)
       * [lua-vim-variables](#lua-vim-variables)
          * [vim.g](#vimg)
@@ -34,6 +35,7 @@
          * [Winbar](#winbar)
          * [ctags](#ctags)
          * [Vista 函数列表](#vista-函数列表)
+<!--te-->
 
 ### lua-vim-variables
 
@@ -747,7 +749,7 @@ end)
 [archlinux wl-clipboard manual page](https://man.archlinux.org/man/wl-clipboard.1.en)
 
 ```bash
-sudo pacman -S wl-clipboard chiphist
+sudo pacman -S wl-clipboard cliphist
 ```
 
 #### 如何安装comment插件
