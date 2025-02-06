@@ -1,6 +1,8 @@
 ## xmodmap configuration file
 
+<!--ts-->
    * [xmodmap configuration file](#xmodmap-configuration-file)
+<!--te-->
 
 这里的配置文件主要是用于将`Caps Lock` 键和 `Control` 互换，`Super` 和 `Alt` 键进行互换
 

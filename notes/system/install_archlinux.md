@@ -1,5 +1,6 @@
 ## Install ArchLinux Guide
 
+<!--ts-->
    * [Install ArchLinux Guide](#install-archlinux-guide)
       * [How to Make A Bootable UEFI USB  Device](#how-to-make-a-bootable-uefi-usb--device)
       * [Install ArchLinux](#install-archlinux)
@@ -49,6 +50,8 @@
       * [影音多媒体的一些软件](#影音多媒体的一些软件)
       * [Proxychains](#proxychains)
       * [Crash when updating the system](#crash-when-updating-the-system)
+<!--te-->
+
 
 ### How to Make A Bootable UEFI USB  Device
 

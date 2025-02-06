@@ -1,5 +1,6 @@
 ## Fcitx5 Configuration
 
+<!--ts-->
    * [Fcitx5 Configuration](#fcitx5-configuration)
       * [Installation](#installation)
       * [Integriate with the dwm](#integriate-with-the-dwm)
@@ -8,6 +9,7 @@
       * [与系统的语言的配置关系](#与系统的语言的配置关系)
       * [配置皮肤](#配置皮肤)
       * [configtool 配置文件所在位置](#configtool-配置文件所在位置)
+<!--te-->
 
 ### Installation
 ```bash

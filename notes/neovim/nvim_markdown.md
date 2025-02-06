@@ -1,9 +1,11 @@
 ## Markdown Configuration in NeoVim
 
+<!--ts-->
    * [Markdown Configuration in NeoVim](#markdown-configuration-in-neovim)
       * [Install Markdown Preview Plugin for NeoVim](#install-markdown-preview-plugin-for-neovim)
       * [Snippets for Markdown](#snippets-for-markdown)
          * [Shortcuts for Markdown](#shortcuts-for-markdown)
+<!--te-->
 
 ### Install Markdown Preview Plugin for NeoVim
 

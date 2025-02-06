@@ -1,21 +1,20 @@
 ## Sway
 
 <!--ts-->
-   * [Sway](#sway)
-      * [安装必备的包](#安装必备的包)
-         * [安装基础包](#安装基础包)
-         * [安装menu管理器](#安装menu管理器)
-         * [安装模拟Terminal](#安装模拟terminal)
-         * [安装StatusBar-&gt;waybar](#安装statusbar-waybar)
-         * [安装XWayland](#安装xwayland)
-      * [一些软件配置](#一些软件配置)
-         * [按钮互换](#按钮互换)
-         * [fcitx5](#fcitx5)
-         * [Chrome](#chrome)
-         * [截图等工具的使用](#截图等工具的使用)
-         * [使用壁纸](#使用壁纸)
-         * [使用消息管理器](#使用消息管理器)
-
+   * [安装必备的包](#安装必备的包)
+      * [安装基础包](#安装基础包)
+      * [安装menu管理器](#安装menu管理器)
+      * [安装模拟Terminal](#安装模拟terminal)
+      * [安装StatusBar-&gt;waybar](#安装statusbar-waybar)
+      * [安装XWayland](#安装xwayland)
+   * [一些软件配置](#一些软件配置)
+      * [按钮互换](#按钮互换)
+      * [fcitx5](#fcitx5)
+      * [Chrome](#chrome)
+      * [截图等工具的使用](#截图等工具的使用)
+      * [使用壁纸](#使用壁纸)
+      * [使用消息管理器](#使用消息管理器)
+      * [多显示器操作](#多显示器操作)
 <!--te-->
 
 ![Sway软件截图](./images/sway-screenshot.png)
@@ -70,6 +69,17 @@ sudo pacman -S waybar
 其配置文件有两个:
 1. `~/.config/waybar/config` 这是一个json文件，主要用于配置显示什么内容，格式等信息。
 2. `~/.config/waybar/style.css` 这是一个`css` 文件，对于状态栏的样式进行控制，如：*使用什么样的字体*，*状态的透明度和颜色等信息*。
+
+```json
+{
+   // sway的一些配置集成配置方法，可以显示当前sway的工作空间以及scratchpad等信息
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-center": ["sway/window"],
+   // hyprland提供的一些command配置
+    // "modules-left": ["hyprland/workspaces"],
+    // "modules-center": ["hyprland/window"],
+}
+```
 
 #### 安装XWayland
 
@@ -270,9 +280,5 @@ output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 ```
 
 上面的配置表示可以将一个`app` 移动到左侧的屏幕并且*focus* 到新移动的位置。[Reddit上的解决方案帖子](https://www.reddit.com/r/swaywm/comments/hd9r4e/how_to_move_workspace_to_another_window/)。
-
-
-
-
 
 

@@ -1,8 +1,10 @@
 ## Easy Align
 
+<!--ts-->
    * [Easy Align](#easy-align)
       * [配置](#配置)
       * [Demo](#demo)
+<!--te-->
 
 [Easy Align Github](https://github.com/junegunn/vim-easy-align) 
 

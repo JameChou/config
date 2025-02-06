@@ -1,11 +1,13 @@
 ## Picom 设置
 
+<!--ts-->
    * [Picom 设置](#picom-设置)
       * [Installation](#installation)
       * [Config](#config)
       * [Start Picom with Xorg](#start-picom-with-xorg)
       * [St Transparency](#st-transparency)
       * [使用体验](#使用体验)
+<!--te-->
 
 ### Installation
 

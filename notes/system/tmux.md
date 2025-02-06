@@ -1,11 +1,13 @@
 ## tmux
 
+<!--ts-->
    * [tmux](#tmux)
       * [安装](#安装)
       * [配置](#配置)
          * [Prefix Key](#prefix-key)
          * [快捷键配置](#快捷键配置)
          * [Status Bar配置](#status-bar配置)
+<!--te-->
 
 > tmux is a program which runs in a terminal and allows multiple other terminal programs to be run inside it. Each program inside tmux gets its own terminal managed by tmux, which can be accessed from the single terminal where tmux is running - this called multiplexing and tmux is a terminal multiplexer.
 

@@ -1,10 +1,12 @@
 ## St Terminal Configuration
 
+<!--ts-->
    * [St Terminal Configuration](#st-terminal-configuration)
       * [Change the shell to zsh](#change-the-shell-to-zsh)
       * [Change the font](#change-the-font)
       * [Shortcut Zoom](#shortcut-zoom)
       * [Tranparency](#tranparency)
+<!--te-->
 
 [Check the ArchLinux wiki about st doc](https://wiki.archlinux.org/title/St)
 
