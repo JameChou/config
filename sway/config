@@ -16,6 +16,7 @@ set $menu wmenu-run -f "JetBrains Mono light 12" -i -N 191919 -S 6f3f89 -s fffff
 
 ### Output configuration
 output eDP-1 background ~/Pictures/wallpapers/wallpaper2.jpg fill
+output eDP-1 mode 3840x2160@60.000Hz scale 2
 
 output DP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
 output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
@@ -212,12 +213,16 @@ titlebar_padding 1
 titlebar_border_thickness 0
 #default_border pixel 1
 for_window [class=".*"] border pixel 1
-
+for_window [class="clion" title="clion"] floating enable, resize set 3840 2160, move position center
 #
 # Always exec
 # 
 
 exec_always --no-startup-id  fcitx5 -d
 exec_always swaymsg seat - cursor set 9999 9999
-
+exec_always {
+    xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+    xrdb -merge <<< 'Xft.dpi: 192'
+    xsettingsd
+}
 include /etc/sway/config.d/*

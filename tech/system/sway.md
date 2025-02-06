@@ -83,6 +83,29 @@ sudo pacman -S xorg-xwayland
 
 这个安装包安装完成之后，使用`reboot` 命令重启之后生效。
 
+比如`Java` 编写的程序`Clion` 等应用程序在`HiDpi` 的设备下面显示的效果极差。好的解决方案为使用`wl-roots` 以及`xwayland` 的patch版本，相关的`pull request` 都还没有合并到主线上去。
+
+[https://yhndnzj.com/2022/10/17/sway-xwayland-real-hidpi/](https://yhndnzj.com/2022/10/17/sway-xwayland-real-hidpi/)
+
+在上面的贴子上也讲解了如何让`xwayland` 应用用上真正的高分屏。
+
+```bash
+yay -S xorg-xwayland-hidpi-xprop wlroots-hidpi-xprop-git sway-git
+
+sudo pacman -S xorg-xprop xorg-xrdb xsettingsd
+```
+
+将这几个工具`patch`后`xwayland` 程序则会自身去使用缩放功能，达到高分屏显示的效果。
+
+然后再配置`~/.config/sway/config` 文件。增加下面的配置:
+```config
+exec_always {
+    xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+    xrdb -merge <<< 'Xft.dpi: 192'
+    xsettingsd
+}
+```
+
 ### 一些软件配置
 
 这里记录一下在`wayland` 中一些软件配置的问题。
