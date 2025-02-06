@@ -50,6 +50,7 @@
       * [影音多媒体的一些软件](#影音多媒体的一些软件)
       * [Proxychains](#proxychains)
       * [Crash when updating the system](#crash-when-updating-the-system)
+      * [USB自动挂起](#usb自动挂起)
 <!--te-->
 
 
@@ -556,5 +557,30 @@ pacstrap /mnt linux linux-firmware
 重新安装内核，再使用`arch-chroot /mnt`进入系统，修复`grub` 引导。
 
 这种可以挽回一些重要资料，系统还是可以比较正常使用的，可能是因为事情发生的节点正好在更新`nvidia` 驱动的时候。所以`nvidia-smi` 原来可以读到我的驱动程序的，但是后来就再也读不到了。我也尝试再去删除我的内核参数配置也没有办法生效。
+
+### USB自动挂起
+[Power Management - USB](https://wiki.archlinuxcn.org/wiki/%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86#USB_%E8%87%AA%E5%8A%A8%E6%8C%82%E8%B5%B7)
+
+```conf
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", ATTR{idProduct}=="9205", ATTR{power/autosuspend}="-1"
+```
+
+上面的方法没有成功，最后可以在内核中把`usbcore.suspend`直接给禁用掉。
+
+编辑`/etc/default/grub` 这个文件。
+
+```conf
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=5 quiet nowatchdog usbcore.autosuspend=-1"
+```
+
+在这个文件中加入`usbcore.autosuspend=-1` 表示不自动挂起。
+
+然后再更新grub配置文件。
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+通过上面的配置，现在2.4G的鼠标就不会再有问题，原来的自动挂起时间太短了，非常不爽！
 
 

@@ -281,4 +281,10 @@ output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 
 上面的配置表示可以将一个`app` 移动到左侧的屏幕并且*focus* 到新移动的位置。[Reddit上的解决方案帖子](https://www.reddit.com/r/swaywm/comments/hd9r4e/how_to_move_workspace_to_another_window/)。
 
+#### env环境设置
+```bash
+env 'QT_QPA_PLATFORM=wayland;xcb' QT_SCALE_FACTOR=1 /usr/bin/wechat-universal
+```
+
+
 
