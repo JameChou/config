@@ -29,6 +29,7 @@ zvm_after_init_commands+=(init_keybindings)
 
 # --------------------------------- end key binding--------------------------------
 
+export XDG_CONFIG_HOME=~/.config
 
 # ---------------------------------- begin alias-----------------------------------
 #

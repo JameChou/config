@@ -55,6 +55,7 @@ bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-sen
 
     # Start your launcher
     bindsym $mod+p exec $menu
+    bindsym $mod+d exec rofi -show drun
 
     floating_modifier $mod normal
 
@@ -188,7 +189,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-    bindsym $mod+Shift+p exec slurp | grim
+    bindsym $mod+Shift+p exec slurp | grim -g -
+    bindsym $mod+Shift+Print exec slurp | grim -g - - | wl-copy
 
 #
 # Status Bar:
@@ -219,7 +221,11 @@ for_window [class="clion" title="clion"] floating enable, resize set 3840 2160, 
 # 
 
 exec_always --no-startup-id  fcitx5 -d
+# switch the input method
+bindsym $mod+space exec fcitx5-remote -t && notify-send -u normal -r 3289 -t 1100 "$(fcitx5-remote -n)"
+
 exec_always swaymsg seat - cursor set 9999 9999
+
 exec_always {
     xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
     xrdb -merge <<< 'Xft.dpi: 192'

@@ -221,16 +221,22 @@ bindsym Print exec grim
 
 ```bash
 # 对一个可选区域进行截图，这种方式会增加一个timestamp名称，并储存在 ~目录下
-slurp | grim
+slurp | grim -g -
 
 # 对一个区域进行截图，指定名称并且存储在 ~/Pictures/ 下
 slurp | grim -g - scrrenshot.png
 ```
 
 ```conf
-bindsym $mod+Shift+p exec slurp | grim
+bindsym $mod+Shift+p exec slurp | grim -g -
 ```
 上面的配置表示使用快捷键`Super+Shfit+p` 对一块区域进行截图操作。
+
+```
+bindsym $mod+Shift+Print exec slurp | grim -g - - | wl-copy
+```
+
+上面的配置表示选择一块区域然后进行截图，数据并且保存在系统的剪切板中。
 
 #### 使用壁纸
 需要使用到一个包`swaybg`

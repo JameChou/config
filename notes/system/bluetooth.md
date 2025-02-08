@@ -80,3 +80,12 @@ Connection successful
 5. 如果配对设备不需要PIN，那么可能需要将设备添加到信任列表，使用命令`trust MAC_ADDRESS`。
 6. 使用命令`connect MAC_ADDRESS` 建立连接。
 
+### 删除某个设备
+```bash
+remove XX:00:XX:XX:XX
+```
+
+可以使用命令对某个已经配对的设备进行删除操作。
+
+或者我们进行`/var/lib/bluetooth` 下面找到本机对应的`Mac` 地址下的文件夹，然后再对里面的某个设备删除，或者编辑。
+

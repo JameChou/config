@@ -4,7 +4,9 @@
    * [Fcitx5 Configuration](#fcitx5-configuration)
       * [Installation](#installation)
       * [Integriate with the dwm](#integriate-with-the-dwm)
-      * [start fcitx5 on startx](#start-fcitx5-on-startx)
+      * [How to start fcitx5](#how-to-start-fcitx5)
+         * [xorg](#xorg)
+         * [sway(wayland)](#swaywayland)
       * [set the input method](#set-the-input-method)
       * [与系统的语言的配置关系](#与系统的语言的配置关系)
       * [配置皮肤](#配置皮肤)
@@ -31,7 +33,10 @@ fcitx5 &
 fcitx5 -d
 ```
 
-### start fcitx5 on startx
+### How to start fcitx5
+
+#### xorg
+
 ```bash
 vim ~/.xinitrc
 ```
@@ -41,6 +46,16 @@ add start fcitx5 command on bottom of file
 fcitx5 -d
 ```
 
+#### sway(wayland)
+```conf
+exec_always --no-startup-id  fcitx5 -d
+# switch the input method
+bindsym $mod+space exec fcitx5-remote -t && notify-send -u normal -r 3289 -t 1100 "$(fcitx5-remote -n)"
+```
+
+`bindsym $mod+space exec fcitx5-remote -t && notify-send -u normal -r 3289 -t 1100 "$(fcitx5-remote -n)"` 这一段表示使用命令去切换输入法，这时候打开`fcitx5-configtool`把原先的切换输入法的配置替换掉。
+
+![fcitx5 配置界面图](./images/fcitx5_config.png)
 
 ### set the input method
 ```bash
@@ -136,4 +151,5 @@ EnableFractionalScale=True
 ```
 
 **注意** 我使用了`fcitx5-material-color` 这个安装包。上面的配置也进行了展示。
+
 
