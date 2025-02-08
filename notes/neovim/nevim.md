@@ -1,5 +1,7 @@
 ## NeoVim 配置学习
 
+[https://www.lazyvim.org/configuration/lazy.nvim](https://www.lazyvim.org/configuration/lazy.nvim) 这个是`lazyvim` 的配置wiki
+
 <!--ts-->
    * [NeoVim 配置学习](#neovim-配置学习)
       * [lua-vim-variables](#lua-vim-variables)
@@ -14,6 +16,7 @@
       * [基础的快捷键绑定](#基础的快捷键绑定)
       * [Autocommands](#autocommands)
       * [高亮Yank段](#高亮yank段)
+      * [使用Reg来复制](#使用reg来复制)
       * [LazyVim](#lazyvim)
          * [安装管理插件](#安装管理插件)
          * [tpoe/vim-sleuth](#tpoevim-sleuth)
@@ -246,6 +249,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 ```
+
+### 使用Reg来复制
+[参考文章](https://alldrops.info/posts/vim-drops/2018-04-16_vim-registers-the-powerful-native-clipboard/)
+
+我们可以使用`:reg` 命令预览现在`registers` 中的内容，然后前面有标号则可以查看不同的名称，按下标号名称则可以把这个放置在第一位上面，随便再使用`p` 命令就可以把切换到的内容放在第一位上。
+
+![寄存器截图](./images/neovim_reg.png)
 
 ### LazyVim
 [LazyVim](https://github.com/folke/lazy.nvim.git)是一个开源的，开箱即用的NeoVim distribution。我们可以使用这个来管理相关的插件。
@@ -922,7 +932,6 @@ M.Config = {
 
 return M
 ```
-
 
 
 

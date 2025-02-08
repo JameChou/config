@@ -42,7 +42,7 @@ alias pc4=proxychains4
 # set the terminal proxy to link 7897 port
 alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
-alias gtoc="gh-md-toc --insert --no-backup --hide-footer --skip-header"
+alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
 
 # ---------------------------------- end alias-----------------------------------
