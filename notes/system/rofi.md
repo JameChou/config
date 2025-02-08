@@ -1,6 +1,16 @@
 ## Rofi相关笔记
 
+<!--ts-->
+   * [Rofi相关笔记](#rofi相关笔记)
+      * [如何安装](#如何安装)
+      * [Sway配置启动键](#sway配置启动键)
+      * [配置rofi](#配置rofi)
+         * [选择内置的主题](#选择内置的主题)
+         * [安装icon主题](#安装icon主题)
+<!--te-->
+
 [https://github.com/lbonn/rofi/](https://github.com/lbonn/rofi/)
+[https://wiki.archlinuxcn.org/wiki/Rofi](https://wiki.archlinuxcn.org/wiki/Rofi)
 
 Rofi本身是在`xorg` 下的一个启动器，我在`sway` 上面已经使用了`wmenu` 为什么还要再使用`rofi` 呢，主要是为了跟`wmenu` 进行配合的使用，因为如下面的表列出来的，`rofi` 可以支持`drun` 也就是支持`*.desktop`的启动方式。当然`dmenu` 也是支持的，不过再进行配置，我还是感觉烦。使用这个进行分割开来。
 
@@ -45,5 +55,37 @@ rofi则会找到`/usr/share/applications/` 以及 `~/.local/share/applications/`
 
 
 这样就比较好的支持了应用从`desktop` 文件启动，我们则可以在文件中配置启动环境变量等信息。
+
+
+### 配置rofi
+
+配置文件在`~/.config/rofi/config.rasi`
+
+```conf
+configuration {
+    modes: [drun];
+}
+
+@theme "DarkBlue"
+```
+
+#### 选择内置的主题
+
+可以使用命
+```
+rofi-theme-selector
+```
+
+#### 安装icon主题
+```bash
+sudo pacman -S papirus-icon-theme
+```
+
+然后在启动的`sway` 配置文件中加入启用`icon-theme` 的相关配置。
+
+```conf
+bindsym $mod+d exec rofi -show drun -font "hack 10" -icon-on-theme "Papirus" -show-icons
+```
+
 
 

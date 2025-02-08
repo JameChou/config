@@ -2,4 +2,4 @@ configuration {
     modes: [drun];
 }
 
-@theme "gruvbox-light"
+@theme "fancy"

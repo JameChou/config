@@ -51,6 +51,7 @@
       * [Proxychains](#proxychains)
       * [Crash when updating the system](#crash-when-updating-the-system)
       * [USB自动挂起](#usb自动挂起)
+      * [gnupg相关问题](#gnupg相关问题)
 <!--te-->
 
 
@@ -582,5 +583,43 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 通过上面的配置，现在2.4G的鼠标就不会再有问题，原来的自动挂起时间太短了，非常不爽！
+
+### gnupg相关问题
+记录一次坑，有一次删除软件时使用了`pacman -Rsdd`，这个时候可能不会考虑到一些依赖，直接把`sqlite3` 给删除了，因为`gnupg` 这个加密相关的是使用`sqlite3`所以整个系统都挂掉了。处理这个事情查找到`archwiki` 中也有相关的帖子。
+
+[gnupg挂了的帖子](https://bbs.archlinuxcn.org/viewtopic.php?id=14291)
+
+
+我们可以把gnupg的包给手动下载下来，然后使用命令安装上去。
+```bash
+# 首先先删除gnupg
+$ sudo rm -f /var/lib/pacman/local/gnupg-2.4.7-1
+
+```
+
+然后重要的是编辑`/etc/pacman.conf`这个文件 
+```conf
+SigLevel    = Required DatabaseOptional
+# SigLevel    = Never
+```
+
+我们可以指定验证签名`sig`的级别，先改为`Never`，然后就不需要验证签名了。
+
+
+```bash
+$ sudo pacman -U gnupg-2.4.7-1-x86_64.pkg.tar.zst --overwrite '*'
+```
+
+重新安装`gnupg` 包。
+
+```bash
+$ sudo pacman-key --init
+$ sudo pacman-key --populate
+```
+
+重新刷新`key`。记得将`sig` 的级别改为正常状态。这时候再试一试使用`pacman -Syyu` 这样的命令是否可以正常的更新。
+
+
+
 
 

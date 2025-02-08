@@ -5,6 +5,9 @@
       * [Install the BCM driver firmware](#install-the-bcm-driver-firmware)
       * [Start Bluetooth Service](#start-bluetooth-service)
       * [Install bluetooth util](#install-bluetooth-util)
+      * [删除某个设备](#删除某个设备)
+      * [Trust某个设备](#trust某个设备)
+      * [开机即可以被发现](#开机即可以被发现)
 <!--te-->
 
 ### Install the BCM driver firmware
@@ -88,4 +91,28 @@ remove XX:00:XX:XX:XX
 可以使用命令对某个已经配对的设备进行删除操作。
 
 或者我们进行`/var/lib/bluetooth` 下面找到本机对应的`Mac` 地址下的文件夹，然后再对里面的某个设备删除，或者编辑。
+
+
+### Trust某个设备
+
+```bash
+# 进入bluetoothctl 管理控制台
+bluetoothctl
+
+# 表示信任某个设备
+trust 00:18:xx:xx:xx
+```
+
+我的Filco Ninja机械键盘在使用的时候有这么一个问题：连接成功之后在第二次连接的时候会出现一直断连的情况，需要手动的输入，信任此设备才可以正常的使用。
+
+### 开机即可以被发现
+编辑`/etc/bluetooth/main.conf`文件，在`General` 中加入
+
+```
+[General]
+DiscoverableTimeout = 0
+```
+
+
+
 
