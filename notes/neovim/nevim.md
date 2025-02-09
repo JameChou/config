@@ -16,7 +16,6 @@
       * [基础的快捷键绑定](#基础的快捷键绑定)
       * [Autocommands](#autocommands)
       * [高亮Yank段](#高亮yank段)
-      * [使用Reg来复制](#使用reg来复制)
       * [LazyVim](#lazyvim)
          * [安装管理插件](#安装管理插件)
          * [tpoe/vim-sleuth](#tpoevim-sleuth)

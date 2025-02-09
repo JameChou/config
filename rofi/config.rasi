@@ -1,5 +1,6 @@
 configuration {
     modes: [drun];
+    dpi:120;
 }
 
-@theme "fancy"
+@theme "spotlight-dark"

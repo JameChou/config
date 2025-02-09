@@ -76,6 +76,17 @@ configuration {
 rofi-theme-selector
 ```
 
+从github上可以找到不错的主题合集
+```bash
+$ pc4 git clone https://github.com/newmanls/rofi-themes-collection.git
+```
+
+```bash
+$ mkdir -p ~/.local/share/rofi/themes
+$ cp themes/* ~/.local/share/rofi/themes
+```
+然后将这些主题移动到`~/.loca/share/rofi/themes` 再打`rofi-theme-selector` 去预览选择相应的主题。
+
 #### 安装icon主题
 ```bash
 sudo pacman -S papirus-icon-theme
@@ -84,7 +95,7 @@ sudo pacman -S papirus-icon-theme
 然后在启动的`sway` 配置文件中加入启用`icon-theme` 的相关配置。
 
 ```conf
-bindsym $mod+d exec rofi -show drun -font "hack 10" -icon-on-theme "Papirus" -show-icons
+ bindsym $mod+d exec rofi -show drun -font "Lucida Grande" -icon-theme "Papirus" -show-icons
 ```
 
 

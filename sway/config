@@ -55,7 +55,7 @@ bindsym $mod+Shift+backslash input "type:touchpad" tap disabled, exec notify-sen
 
     # Start your launcher
     bindsym $mod+p exec $menu
-    bindsym $mod+d exec rofi -show drun -font "hack 10" -icon-on-theme "Papirus" -show-icons
+    bindsym $mod+d exec rofi -show drun -font "Lucida Grande" -icon-theme "Papirus" -show-icons
 
     floating_modifier $mod normal
 
