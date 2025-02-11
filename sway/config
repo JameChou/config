@@ -16,9 +16,13 @@ set $menu wmenu-run -f "JetBrains Mono light 12" -i -N 191919 -S 6f3f89 -s fffff
 
 ### Output configuration
 output eDP-1 background ~/Pictures/wallpapers/wallpaper2.jpg fill
-output eDP-1 mode 3840x2160@60.000Hz scale 2
+# output eDP-1 mode 3840x2160@60.000Hz scale 2
 
-output DP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
+#right
+output eDP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
+
+# output DP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
+output DP-1 mode 3840x2160@60.000Hz position 1920,0 scale 2
 output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 
 ### Idle configuration

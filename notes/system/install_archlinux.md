@@ -466,7 +466,7 @@ alsamixer
 首先第一个我们可以访问下面的官网，然后下载`AppImage` 的形式来加载，然后使用命令`./Wechatxxx` 的方式来打开微信。
 
 
-### TTL Font
+### TTL Font && Kbd
 经过上面的安装之后，我们登录，然后使用命令`startx`来启动`xserver`服务，但是这个字体很小，需要再对这块进行设置
 
 
@@ -478,6 +478,58 @@ cd /usr/share/kbd/consolefonts
 # 可以使用滚动查找去看有没有文件
 ll | less
 ```
+
+按键设置，主要是对于`Caps_Lock` 和`Control` 键进行互换。
+
+首先先对现有的按键配置copy一份到`/usr/local/share/kbd/keymaps/`
+
+`/usr/share/kbd/keymaps/i386/qwerty/us.map.gz`
+
+```bash
+sudo mkdir -p /usr/local/share/kbd/keymaps
+cp /usr/share/kbd/keymaps/i386/qwerty/us.map.gz /usr/local/share/kbd/keymaps/ 
+```
+
+然后对这个文件进行编辑操作,主要是交换**29(Control)** 和**58(Caps_Lock)**我们可以让这个两者进行互换。
+
+最后在`/etc/vconsole.conf` 文件中加入下面的内容。
+```
+KEYMAP="/usr/local/share/kbd/keymaps/us.map.gz"
+```
+
+
+安装`mac-font`
+```bash
+$ yay -S ttf-mac-fonts
+```
+
+然后建立`fontconfig`相关的配置文件，文件位置在`~/.config/fontconfig/fonts.conf`以及`~/.config/fontconfig/web-ui-fonts.conf`
+
+主要的配置如下:
+```xml
+  <!-- Default monospace fonts-->
+  <match target="pattern">
+    <test name="family">
+      <string>monospace</string>
+    </test>
+    <edit name="family" mode="prepend" binding="strong">
+      <!--配置苹果的字体-->
+      <string>Lucida Grande</string>
+      <string>Apple Garamond</string>
+      <string>Noto Sans Mono CJK SC</string>
+      <string>Symbols Nerd Font</string>
+      <string>Twemoji</string>
+      <string>Symbols Nerd Font</string>
+    </edit>
+  </match>
+```
+
+最关键的字体配置是:
+```xml
+      <string>Lucida Grande</string>
+      <string>Apple Garamond</string>
+```
+这里就是配置`monospace` 使用苹果的字体。
 
 #### 临时设置
 Like the install progress at the beginning, use `setfont ter-132b` command to change the font size.
