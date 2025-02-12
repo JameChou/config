@@ -25,7 +25,7 @@ output eDP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
 
 # DP-1 plug monitor
 # output DP-1 mode 3840x2160@60.000Hz position 0,0 scale 2
-output DP-1 mode 3840x2160@60.000Hz position 1920,0 scale 2
+output DP-1 mode 3840x2160@60.000Hz position 1920,0 scale 1.5 
 output DP-1 background ~/Pictures/wallpapers/wallpaper3.jpeg fill
 
 ### Idle configuration
