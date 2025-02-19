@@ -45,7 +45,7 @@ alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
-
+alias mpvbili='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
 # ---------------------------------- end alias-----------------------------------
 
 

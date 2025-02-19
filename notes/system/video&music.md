@@ -43,6 +43,13 @@ $ sudo pacman -S pavucontrol
 sudo pacman -S mpv
 ```
 
+```bash
+sudo pacman -S yt-dlp
+
+# 使用硬件加速播放bilibili在线视频
+prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13 video_url
+```
+
 ### OBS
 
 这是一款可以录屏和直播的软件

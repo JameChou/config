@@ -44,7 +44,7 @@
       * [音量](#音量)
       * [安装系统剪切板](#安装系统剪切板)
       * [安装Wechat](#安装wechat)
-      * [TTL Font](#ttl-font)
+      * [TTL Font &amp;&amp; Kbd](#ttl-font--kbd)
          * [临时设置](#临时设置)
          * [Always](#always)
       * [影音多媒体的一些软件](#影音多媒体的一些软件)
@@ -52,6 +52,7 @@
       * [Crash when updating the system](#crash-when-updating-the-system)
       * [USB自动挂起](#usb自动挂起)
       * [gnupg相关问题](#gnupg相关问题)
+      * [更换Wifi6无线网卡](#更换wifi6无线网卡)
 <!--te-->
 
 
@@ -672,6 +673,18 @@ $ sudo pacman-key --populate
 重新刷新`key`。记得将`sig` 的级别改为正常状态。这时候再试一试使用`pacman -Syyu` 这样的命令是否可以正常的更新。
 
 
+### 更换Wifi6无线网卡
+更换了Ax系列的显卡，但是启动之后发现无法使用，这个系列的显卡在`Linux 5.x` 之后就已经在内核中驱动了，可以使用
+```bash
+# 查看现在的无线网卡以及蓝牙信息
+$ rfkill
+
+# 解锁无线网卡
+$ rfkill unblock wlan
+
+# 解锁蓝牙
+$ rfkill unblock bluetooth
+```
 
 
 

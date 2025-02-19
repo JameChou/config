@@ -1,6 +1,15 @@
 ## 关于视频硬解加速的笔记
 
+<!--ts-->
+   * [关于视频硬解加速的笔记](#关于视频硬解加速的笔记)
+      * [安装nVidia闭源驱动](#安装nvidia闭源驱动)
+      * [Hyprland设置](#hyprland设置)
+      * [安装vaapi](#安装vaapi)
+<!--te-->
 
+[https://wiki.archlinuxcn.org/wiki/%E7%A1%AC%E4%BB%B6%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F](https://wiki.archlinuxcn.org/wiki/%E7%A1%AC%E4%BB%B6%E8%A7%86%E9%A2%91%E5%8A%A0%E9%80%9F)
+
+这里讲解的还是蛮清楚的。
 
 ### 安装nVidia闭源驱动
 
