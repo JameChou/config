@@ -674,7 +674,8 @@ $ sudo pacman-key --populate
 
 
 ### 更换Wifi6无线网卡
-更换了Ax系列的显卡，但是启动之后发现无法使用，这个系列的显卡在`Linux 5.x` 之后就已经在内核中驱动了，可以使用
+更换了AX系列的显卡，但是启动之后发现无法使用，这个系列的显卡在`Linux 5.x` 之后就已经在内核中驱动了，可以直接使用*Intel* 的相关的内核驱动了。
+
 ```bash
 # 查看现在的无线网卡以及蓝牙信息
 $ rfkill
@@ -685,6 +686,20 @@ $ rfkill unblock wlan
 # 解锁蓝牙
 $ rfkill unblock bluetooth
 ```
+
+这里的是使用`rfkill`命令，可以查看输出的结果。
+
+```bash
+$ rfkill
+ID TYPE      DEVICE              SOFT      HARD
+ 0 bluetooth hci0           unblocked unblocked
+ 1 wlan      dell-wifi      unblocked unblocked
+ 2 bluetooth dell-bluetooth unblocked unblocked
+ 3 wlan      phy0           unblocked unblocked
+
+```
+
+如果输出的结果中`SOFT` 中显示的数据是`blocked` 那么就说明这里的显卡已经无法被使用了，那么再使用`rfkill unblock wlan` 等相关命令去开启。然后再使用`iwctl` 等命令去链接wifi。
 
 
 
