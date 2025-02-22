@@ -71,3 +71,26 @@ yay -S feeluown
 # 安装网易云音乐插件
 yay -S feeluown-netease
 ```
+
+
+我们可以使用终端下的一个音乐播放器，`mpd` 和 `ncmpcpp`。
+```bash
+sudo pacman -S ncmpcpp
+sudo pacman -S mpd
+```
+
+mpd的配置文件在`~/.config/mpd/mpd.conf`
+
+而ncmpcpp的配置文件在`~/.config/ncmpcpp/bindings` 这个文件是配置按键的快捷键的，`~/.config/ncmpcpp/config` 是ncmpcpp的配置文件。
+
+安装完配置之后还需要建立`mpd` 的所需要的*playlist* 文件夹。
+
+```bash
+mkdir -p ~/.config/mpd/playlists/
+cd ~/.config/mpd
+touch mpdstate
+```
+
+需要先启动`mpd` 之后才可以再启动`ncmpcpp` 程序。
+
+进行`ncmcpp` 之后可以使用*1~9* 进行切换菜单。
