@@ -19,7 +19,11 @@ yarn config set registry https://registry.npm.taobao.org
 
 # disable yarn ssl connect
 yarn config set strict-ssl false
+```
 
+**recommand to install the yarn package via `pacman`**, cause this will update when use the command `sudo pacman -Syyu`
+```bash
+sudo pacman -S yarn
 ```
 
 Import `instant-markdown` plugin to lazyvim manager. Run `nvim`, use command `:Lazy` to install the plugin.
