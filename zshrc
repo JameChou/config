@@ -32,6 +32,9 @@ zvm_after_init_commands+=(init_keybindings)
 export XDG_CONFIG_HOME=~/.config
 export LC_LANG=und
 
+export JAVA_HOME=/usr/lib/jvm/default/
+export MVN_HOME=/usr/share/java/maven
+
 # ---------------------------------- begin alias-----------------------------------
 #
 alias vim='nvim'
@@ -47,5 +50,3 @@ alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
 alias mpvbili='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
 # ---------------------------------- end alias-----------------------------------
-
-
