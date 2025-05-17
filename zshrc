@@ -43,6 +43,7 @@ alias his=history
 
 alias pc4=proxychains4
 alias upsys='sudo pacman -Syyu && pc4 paru -Syyu && pc4 flatpak update'
+alias lockpc='swaylock -f -c 000000'
 
 # set the terminal proxy to link 7897 port
 alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
