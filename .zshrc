@@ -27,6 +27,7 @@ function init_keybindings() {
 
 zvm_after_init_commands+=(init_keybindings)
 
+eval "$(starship init zsh)"
 # --------------------------------- end key binding--------------------------------
 
 export XDG_CONFIG_HOME=~/.config
@@ -47,6 +48,8 @@ alias upsys='sudo pacman -Syyu && pc4 paru -Syyu && pc4 flatpak update'
 alias lockpc='swaylock -f -c 000000'
 
 # set the terminal proxy to link 7897 port
+# copy the current path to the system clipboard
+alias copy="echo `pwd` | wl-copy"
 alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"

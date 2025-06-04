@@ -231,7 +231,7 @@ bar {
 # to startup the fcitx5 input method
 
 
-client.focused		        #9962b7 #9962b7 #f1f1f1 #e6da00
+client.focused              #9962b7 #9962b7 #f1f1f1 #e6da00
 client.focused_inactive     #0092cc #0092cc #f1f1f1 #0092cc
 client.unfocused            #191919 #191919 #f1f1f1 #191919
 client.urgent               #e6da00 #e6da00 #f1f1f1 #9962b7

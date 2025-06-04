@@ -131,7 +131,7 @@ keymap = [
 		{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 
 		# Tabs
-	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
+	{ on = "T", run = "tab_create --current", desc = "Create a new tab with CWD" },
 
 	{ on = "1", run = "tab_switch 0", desc = "Switch to first tab" },
 	{ on = "2", run = "tab_switch 1", desc = "Switch to second tab" },
@@ -158,7 +158,11 @@ keymap = [
 ]
 
 prepend_keymap = [
-	{ on = ["f", "j"], run = "plugin first-non-directory", desc = "Jumps to the first file" }
+	{ on = ["f", "j"], run = "plugin first-non-directory", desc = "Jumps to the first file" },
+	{ on = ["t", "t"],  run = "shell --orphan 'tmux new-window'", desc = "Create a new tmux window." },
+	{ on = ["t", "k"],  run = "shell --orphan kitty", desc = "Open the current path on a new Kitty terminal." },
+	{ on = ["t", "v"],  run = "shell --orphan 'tmux split-window -h'", desc = "Split vertical pane in tmux." },
+	{ on = ["t", "x"],  run = "shell --orphan 'tmux split-window -v'", desc = "Split horizontal pane in tmux." },
 ]
 
 [tasks]
@@ -336,7 +340,7 @@ keymap = [
 
 keymap = [
 	{ on = "<C-c>",   run = "close",                                      desc = "Cancel completion" },
-	{ on = "<Tab>",   run = "close --submit",                             desc = "Submit the completion" },
+	{ on = "<C-y>",   run = "close --submit",                             desc = "Submit the completion" },
 	{ on = "<Enter>", run = [ "close --submit", "input:close --submit" ], desc = "Complete and submit the input" },
 
 	{ on = "<A-k>", run = "arrow prev", desc = "Previous item" },
