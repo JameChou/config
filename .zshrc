@@ -28,6 +28,7 @@ function init_keybindings() {
 zvm_after_init_commands+=(init_keybindings)
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 # --------------------------------- end key binding--------------------------------
 
 export XDG_CONFIG_HOME=~/.config
