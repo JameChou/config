@@ -3,4 +3,18 @@ configuration {
     dpi:120;
 }
 
-@theme "spotlight-dark"
+//@theme "spotlight-dark"
+
+// @theme "/home/xinyu/.config/rofi/themes/catppuccin-mocha.rasi"
+
+//@theme "/home/xinyu/.local/share/rofi/themes/simple-tokyonight.rasi"
+
+//@theme "/home/xinyu/.local/share/rofi/themes/spotlight.rasi"
+
+//@theme "/home/xinyu/.local/share/rofi/themes/launchpad.rasi"
+
+//@theme "/home/xinyu/.local/share/rofi/themes/windows11-list-light.rasi"
+
+//@theme "/home/xinyu/.local/share/rofi/themes/nord.rasi"
+
+@theme "/home/xinyu/.local/share/rofi/themes/rounded-purple-dark.rasi"
