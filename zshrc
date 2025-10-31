@@ -14,7 +14,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
 
 # load omz
 source $ZSH/oh-my-zsh.sh
-
+eval "$(starship init zsh)"
 export EDITOR=nvim
 
 # --------------------------------- begin key binding--------------------------------
@@ -29,8 +29,11 @@ zvm_after_init_commands+=(init_keybindings)
 
 # --------------------------------- end key binding--------------------------------
 
+# set the xterm color to 256
+export TERM=xterm-256color
+
 export XDG_CONFIG_HOME=~/.config
-export LC_LANG=und
+# export LC_LANG=und
 
 export JAVA_HOME=/usr/lib/jvm/default/
 export MVN_HOME=/usr/share/java/maven
@@ -46,7 +49,8 @@ alias upsys='sudo pacman -Syyu && pc4 paru -Syyu && pc4 flatpak update'
 alias lockpc='swaylock -f -c 000000'
 
 # set the terminal proxy to link 7897 port
-alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
+alias all_proxy="export ALL_PROXY='http://172.29.16.1:7897'"
+# alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"

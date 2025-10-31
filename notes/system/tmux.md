@@ -73,4 +73,11 @@ setw -g window-status-bell-style 'fg=yellow bg=red bold'
 set -g status-style bg=#000000
 ```
 
+At WSL archlinux, window subsystem linux, we should add the 256color to the configuration file(`~/.config/tmux/tmux.conf`). Here are the configuration.
+```config
+# set the default terminal color to 256
+set -g default-terminal "tmux-256color"
+set-option -ga terminal-overrides ",*256col*:Tc" 
+
+```
 
