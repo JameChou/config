@@ -20,8 +20,10 @@ export EDITOR=nvim
 # --------------------------------- begin key binding--------------------------------
 #
 function init_keybindings() {
-	source /usr/share/fzf/key-bindings.zsh
-	source /usr/share/fzf/completion.zsh
+	# source /usr/share/fzf/key-bindings.zsh
+	# source /usr/share/fzf/completion.zsh
+	source /usr/local/Cellar/fzf/0.66.1/shell/key-bindings.zsh
+	source /usr/local/Cellar/fzf/0.66.1/shell/completion.zsh
 	bindkey "^Y" autosuggest-accept
 }
 
@@ -49,8 +51,7 @@ alias upsys='sudo pacman -Syyu && pc4 paru -Syyu && pc4 flatpak update'
 alias lockpc='swaylock -f -c 000000'
 
 # set the terminal proxy to link 7897 port
-alias all_proxy="export ALL_PROXY='http://172.29.16.1:7897'"
-# alias all_proxy="export ALL_PROXY='http://127.0.0.1:7897'"
+alias all_proxy="export ALL_PROXY='socks5://127.0.0.1:7897'"
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
