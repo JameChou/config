@@ -1,0 +1,5 @@
+.DS_STORE
+tmux/plugins
+.nvimlog
+yazi/plugins
+

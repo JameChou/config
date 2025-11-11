@@ -19,6 +19,9 @@ export EDITOR=nvim
 
 # --------------------------------- begin key binding--------------------------------
 #
+#
+# initialize fuzzy finder configruation - shortcut key
+# initialize zshell autosuggestion plugin shortcut key
 function init_keybindings() {
 	# source /usr/share/fzf/key-bindings.zsh
 	# source /usr/share/fzf/completion.zsh
@@ -39,23 +42,34 @@ export TERM=xterm-256color
 export XDG_CONFIG_HOME=~/.config
 # export LC_LANG=und
 
-export JAVA_HOME=/usr/lib/jvm/default/
-export MVN_HOME=/usr/share/java/maven
+# managed by pacman under ArchLinux
+# export JAVA_HOME=/usr/lib/jvm/default/
+# export MVN_HOME=/usr/share/java/maven
+
+# managed by brew under macOS
 
 # ---------------------------------- begin alias-----------------------------------
 #
 alias vim='nvim'
-alias ra=ranger
+# alias ra=ranger
+alias ra=yazi
+alias ranger=yazi
+# To show command-line history.
 alias his=history
 
 alias pc4=proxychains4
+# Automatically update system packages.
 alias upsys='sudo pacman -Syyu && pc4 paru -Syyu && pc4 flatpak update'
+# Lock system.
 alias lockpc='swaylock -f -c 000000'
 
 # set the terminal proxy to link 7897 port
 alias all_proxy="export ALL_PROXY='socks5://127.0.0.1:7897'"
+# Auto remove never used package in ArchLinux system.
 alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
+# A command-line tool for generating markdown toc that is generally supported by github.
 alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
+# Play Bilibili videos with NVIDIA GPU acceleration. In ArchLinux or other Linux-base system.
 alias mpvbili='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
 # ---------------------------------- end alias-----------------------------------
