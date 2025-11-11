@@ -68,8 +68,13 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     cmd-9 = 'workspace 9'
     cmd-0 = 'workspace 10'
 
+    # switch to the next or prev workspace
     cmd-comma  = 'workspace prev'
     cmd-period = 'workspace next'
+
+    # focus prev monitor
+    cmd-shift-comma  = 'focus-monitor prev'
+    cmd-shift-period = 'focus-monitor next'
 
     # The --focus-follows-window argument means that when a window moves to a workspace, the focus automatically switches to that specific workspace.
     cmd-shift-1 = 'move-node-to-workspace --focus-follows-window 1'
