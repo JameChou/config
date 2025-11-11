@@ -29,6 +29,8 @@ function init_keybindings() {
 
 zvm_after_init_commands+=(init_keybindings)
 
+# intialize configuration of zoxide
+eval "$(zoxide init zsh)"
 # --------------------------------- end key binding--------------------------------
 
 # set the xterm color to 256
