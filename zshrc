@@ -14,7 +14,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
 
 # load omz
 source $ZSH/oh-my-zsh.sh
-eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+# eval "$(starship init zsh)"
 export EDITOR=nvim
 
 # --------------------------------- begin key binding--------------------------------
@@ -23,10 +24,10 @@ export EDITOR=nvim
 # initialize fuzzy finder configruation - shortcut key
 # initialize zshell autosuggestion plugin shortcut key
 function init_keybindings() {
-	# source /usr/share/fzf/key-bindings.zsh
-	# source /usr/share/fzf/completion.zsh
-	source /usr/local/Cellar/fzf/0.66.1/shell/key-bindings.zsh
-	source /usr/local/Cellar/fzf/0.66.1/shell/completion.zsh
+	source /usr/share/fzf/key-bindings.zsh
+	source /usr/share/fzf/completion.zsh
+	# source /usr/local/Cellar/fzf/0.66.1/shell/key-bindings.zsh
+	# source /usr/local/Cellar/fzf/0.66.1/shell/completion.zsh
 	bindkey "^Y" autosuggest-accept
 }
 
