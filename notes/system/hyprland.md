@@ -103,8 +103,22 @@ xwayland {
 更改`~/.local/share/applications/idea.desktop` 文件
 
 ```conf
+# 这种方式好像在启动的时候并没有用
 Exec=/home/xinyu/Software/idea-IU-243.24978.46/bin/idea %U -Dawt.toolkit.name=WLToolkit
 ```
 在启动参数中增加`-Dawt.toolkit.name=WLToolkit` 就可以了。
+
+
+### 设置macOS下的字体
+
+安装macOS下的字体，我们使用`apple-fonts` 这个AUR包。
+
+```bash
+# yay -S apple-fonts
+paru -S apple-fonts
+
+```
+
+然后就可以使用`nwg-look` 这个命令来进行设置。
 
 

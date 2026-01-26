@@ -314,6 +314,10 @@ cd yay-bin
 makepkg -si
 ```
 
+这里在安装的时候，可以将`PKGBUILD`中设置变量`GOPROXY` 为国内源，那么在安装的时候速度会更快。
+```conf
+export GOPROXY=https://goproxy.cn
+```
 yay的问题在于因为使用了`go` 语言进行开发，所以对于`proxychains` 这类的代理链软件支持并不友好。所以还是使用`paru` 来作为包管理还是不错的。
 
 ### Install Paru

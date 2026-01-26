@@ -163,6 +163,7 @@ prepend_keymap = [
 	{ on = ["t", "k"],  run = "shell --orphan kitty", desc = "Open the current path on a new Kitty terminal." },
 	{ on = ["t", "v"],  run = "shell --orphan 'tmux split-window -h'", desc = "Split vertical pane in tmux." },
 	{ on = ["t", "x"],  run = "shell --orphan 'tmux split-window -v'", desc = "Split horizontal pane in tmux." },
+	{ on = ["l"],  run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 ]
 
 [tasks]
