@@ -682,7 +682,15 @@ local statusline = require 'mini.statusline'
 具体可以访问这个库的[官方地址](https://github.com/echasnovski/mini.nvim)
 
 #### Treesitter
+
 一个官方NeoVim的代码高亮优化显示的plugin
+
+[treesitter-neovim](https://github.com/nvim-treesitter/nvim-treesitter)
+如果想安装treesitter的话，还需要使用`treesitter-cli` 
+```bash
+sudo pacman -S tree-sitter-cli 
+```
+
 
 #### Neo-tree
 [github文档](https://github.com/nvim-neo-tree/neo-tree.nvim)

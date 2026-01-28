@@ -18,6 +18,8 @@
 
 在安装archlinux时我们已经安装了`alsa` 组件，可以驱动声卡等组件，不过功能还是不够丰富，比如切换`hdmi` 对声音进行输出时比较麻烦。所以这时候我们就需要使用`pipewire` 进行管理。
 
+$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+
 ```bash
 $ sudo pacman -S pipewire-alsa
 $ sudo pacman -S pipewire-pulse
