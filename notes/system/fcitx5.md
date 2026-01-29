@@ -152,4 +152,24 @@ EnableFractionalScale=True
 
 **注意** 我使用了`fcitx5-material-color` 这个安装包。上面的配置也进行了展示。
 
+## 安装Rime
+
+```zsh
+sudo pacman -S fcitx5-rime
+```
+
+安装完成之后，可以在`config tools` 中添加`rime` 中添加输入法。 
+
+[Rime极点五笔输入法配置方案](https://github.com/kingzcheung/rime-wubi)
+
+Rime在Linux下面的配置路径在`~/.local/share/fcitx5/rime` 只需要把上面的方案给拷贝到这个目录中去就可以了。
+
+```zsh
+git clone https://github.com/kingzcheung/rime-wubi.git ~/Documents/
+cd ~/.local/share/fcitx5/rime
+cp -R ~/Documents/rime-wubi/* .
+```
+
+然后重启`fcitx5` 服务。
+
 
