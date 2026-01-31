@@ -172,4 +172,42 @@ cp -R ~/Documents/rime-wubi/* .
 
 然后重启`fcitx5` 服务。
 
+## 环境变量配置
+
+下面的配置文件是放在`/etc/environment`这个文件中。
+```setting
+XIM="fcitx"
+# GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+INPUT_METHOD=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=fcitx
+```
+
+
+在上面的配置还差一个`gtk` 的相关配置，根据 [fcitx5 wayland 配置](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland) 中的说明，gtk有三个版本，`gtk2` 、`gtk3` `gtk4` 三个配置。
+
+配置分别为:
+**gtk2.0**: 在`~/.config/.gtkrc-2.0` 中添加如下配置:
+
+```
+gtk-im-module="fcitx"
+```
+
+**gtk3.0**: 在`~/.config/gtk-3.0/setting.ini` 中添加如下配置
+
+```ini
+[Settings]
+gtk-im-module=fcitx
+```
+
+**gtk4.0**: 在`~/.config/gtk-4.0/setting.ini` 中添加如下配置
+
+```ini
+[Settings]
+gtk-im-module=fcitx
+```
+
+
 

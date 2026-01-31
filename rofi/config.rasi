@@ -1,22 +1,14 @@
 configuration {
-    modes: [drun];
-    dpi:120;
+    modi:                       "drun,filebrowser,window,run";
+    font:                       "SF Pro Text";
+    show-icons:                 true;
+    icon-theme:                 "Tela-circle-dracula";
+    display-drun:                " ";
+	drun-display-format:        "{name}";
+    hover-select:               false;
+    scroll-method:              1;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
 }
 
-//@theme "spotlight-dark"
-
-// @theme "/home/xinyu/.config/rofi/themes/catppuccin-mocha.rasi"
-
-//@theme "/home/xinyu/.local/share/rofi/themes/simple-tokyonight.rasi"
-
-//@theme "/home/xinyu/.local/share/rofi/themes/spotlight.rasi"
-
-//@theme "/home/xinyu/.local/share/rofi/themes/launchpad.rasi"
-
-//@theme "/home/xinyu/.local/share/rofi/themes/windows11-list-light.rasi"
-
-//@theme "/home/xinyu/.local/share/rofi/themes/nord.rasi"
-
-//@theme "/home/xinyu/.local/share/rofi/themes/rounded-purple-dark.rasi"
-
-@theme "/home/shinn/.local/share/rofi/themes/spotlight-dark.rasi"
+@theme "theme.rasi"
