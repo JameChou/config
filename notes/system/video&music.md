@@ -20,20 +20,20 @@
 
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 
-```bash
+```zsh
 $ sudo pacman -S pipewire-alsa
 $ sudo pacman -S pipewire-pulse
 ```
 安装这两个软件包，一个是alsa的安装包，一个是管理软件。
 
 通过下面的命令可以查看当前的服务信息:
-```bash
+```zsh
 $ pactl info
 ```
 
 安装`pavucontrol`是一个图形化的控制界面，还是比较方便去控制音量的。
 
-```bash
+```zsh
 $ sudo pacman -S pavucontrol
 ```
 
@@ -41,11 +41,11 @@ $ sudo pacman -S pavucontrol
 
 这是一款可以播放Video的软件。使用下面的命令去安装。
 
-```bash
+```zsh
 sudo pacman -S mpv
 ```
 
-```bash
+```zsh
 sudo pacman -S yt-dlp
 
 # 使用硬件加速播放bilibili在线视频
@@ -56,7 +56,7 @@ prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hw
 
 这是一款可以录屏和直播的软件
 
-```bash
+```zsh
 sudo pacman -S obs-studio
 ```
 
@@ -66,7 +66,7 @@ sudo pacman -S obs-studio
 
 [FeelUOwn](https://github.com/feeluown/FeelUOwn) 这款音乐播放器是`python` 编写的，与其他的一些软件播放器比较来看(electron)编写的，效率上要好一点，另外对于输入法一类的都还是不错的。
 
-```bash
+```zsh
 # 安装FeelUOwn 音乐播放器
 yay -S feeluown
 
@@ -76,7 +76,7 @@ yay -S feeluown-netease
 
 
 我们可以使用终端下的一个音乐播放器，`mpd` 和 `ncmpcpp`。
-```bash
+```zsh
 sudo pacman -S ncmpcpp
 sudo pacman -S mpd
 ```
@@ -87,7 +87,7 @@ mpd的配置文件在`~/.config/mpd/mpd.conf`
 
 安装完配置之后还需要建立`mpd` 的所需要的*playlist* 文件夹。
 
-```bash
+```zsh
 mkdir -p ~/.config/mpd/playlists/
 cd ~/.config/mpd
 touch mpdstate

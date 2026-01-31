@@ -706,4 +706,7 @@ ID TYPE      DEVICE              SOFT      HARD
 如果输出的结果中`SOFT` 中显示的数据是`blocked` 那么就说明这里的显卡已经无法被使用了，那么再使用`rfkill unblock wlan` 等相关命令去开启。然后再使用`iwctl` 等命令去链接wifi。
 
 
+### 
+<++>
+
 

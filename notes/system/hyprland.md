@@ -113,6 +113,14 @@ Exec=/home/xinyu/Software/idea-IU-243.24978.46/bin/idea %U -Dawt.toolkit.name=WL
 
 安装macOS下的字体，我们使用`apple-fonts` 这个AUR包。
 
+```zsh
+#create the local fonts folder for current user
+# /usr/share/fonts -> for all users
+mkdir -p ~/.local/share/fonts
+# then copy the fonts to the fonts folder
+```
+
+
 ```bash
 # yay -S apple-fonts
 paru -S apple-fonts
@@ -120,5 +128,17 @@ paru -S apple-fonts
 ```
 
 然后就可以使用`nwg-look` 这个命令来进行设置。
+
+
+### 触控板
+
+在原生的archlinux以及hyprland中，出现了触控板滑动不顺滑的问题。但是只要插上鼠标之后则好了。查询相关的资料之后表明需要安装`libinput` 才能把触控板这一问题解决。
+
+```zsh
+sudo pacman -S libinput
+```
+
+安装完成之后则能较好的解决这一问题。
+
 
 

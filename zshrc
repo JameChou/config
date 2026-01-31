@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -15,6 +15,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
 # load omz
 source $ZSH/oh-my-zsh.sh
 eval "$(zoxide init zsh)"
+eval "$(oh-my-posh init zsh --config ~/Documents/config/oh-my-posh/themes/kushal.omp.json)"
 # eval "$(starship init zsh)"
 export EDITOR=nvim
 

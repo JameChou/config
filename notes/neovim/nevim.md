@@ -748,7 +748,7 @@ return {
 
 需要安装`xclip` 或 `xcopy`
 
-```bash
+```zsh
 sudo pacman -S xclip
 ```
 
@@ -764,8 +764,7 @@ end)
 上面的这种方式是`xorg` 上的剪切板，而在`Wayland + sway` 有更好的解决方案，可以使用。
 
 [archlinux wl-clipboard manual page](https://man.archlinux.org/man/wl-clipboard.1.en)
-
-```bash
+```zsh
 sudo pacman -S wl-clipboard cliphist
 ```
 
