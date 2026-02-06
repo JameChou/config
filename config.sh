@@ -5,9 +5,7 @@ sudo pacman -S fzf wl-clipboard cliphist wf-recorder slurp ffmpeg zsh neovim tmu
 
 cd ~/.config
 ln -s ~/Documents/config/hypr/ .
-ln -s ~/Documents/config/gtk-3.0/ .
-ln -s ~/Documents/config/gtk-4.0/ .
-ln -s ~/Documents/config/gtkrc-2.0 .
+ln -s ~/Documents/config/gtk* .
 ln -s ~/Documents/config/tmux/ .
 ln -s ~/Documents/config/rofi/ .
 ln -s ~/Documents/config/kitty/ .
