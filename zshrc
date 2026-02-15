@@ -53,6 +53,7 @@ export XDG_CONFIG_HOME=~/.config
 # ---------------------------------- begin alias-----------------------------------
 #
 alias vim='nvim'
+alias v='nvim'
 # alias ra=ranger
 alias ra=yazi
 alias ranger=yazi
@@ -61,7 +62,7 @@ alias his=history
 
 alias pc4=proxychains4
 # Automatically update system packages.
-alias upsys='sudo pacman -Syyu && pc4 paru -Syyu && pc4 flatpak update'
+alias upsys='sudo pacman -Syyu && paru -Syyu && flatpak update'
 # Lock system.
 alias lockpc='swaylock -f -c 000000'
 
@@ -73,5 +74,5 @@ alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
 # Play Bilibili videos with NVIDIA GPU acceleration. In ArchLinux or other Linux-base system.
-alias mpvbili='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
+alias play='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
 # ---------------------------------- end alias-----------------------------------
