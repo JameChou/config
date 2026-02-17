@@ -76,3 +76,5 @@ alias lg="lazygit"
 # Play Bilibili videos with NVIDIA GPU acceleration. In ArchLinux or other Linux-base system.
 alias play='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
 # ---------------------------------- end alias-----------------------------------
+
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
