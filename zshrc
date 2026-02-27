@@ -15,7 +15,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
 # load omz
 source $ZSH/oh-my-zsh.sh
 eval "$(zoxide init zsh)"
-eval "$(oh-my-posh init zsh --config ~/Documents/config/oh-my-posh/themes/1_shell.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/Documents/config/oh-my-posh/themes/catppuccin.omp.json)"
 # eval "$(starship init zsh)"
 export EDITOR=nvim
 
