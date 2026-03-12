@@ -15,7 +15,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=12'
 # load omz
 source $ZSH/oh-my-zsh.sh
 eval "$(zoxide init zsh)"
-eval "$(oh-my-posh init zsh --config ~/Documents/config/oh-my-posh/themes/catppuccin.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/Documents/config/oh-my-posh/themes/gruvbox.omp.json)"
 # eval "$(starship init zsh)"
 export EDITOR=nvim
 
@@ -78,4 +78,5 @@ alias ghtoc="gh-md-toc --insert --no-backup --hide-footer"
 alias lg="lazygit"
 # Play Bilibili videos with NVIDIA GPU acceleration. In ArchLinux or other Linux-base system.
 alias play='prime-run mpv --referrer="https://www.bilibili.com" -v --no-resume-playback --hwdec=auto --ytdl-raw-options=cookies-from-browser=chrome --start=13'
+alias smb='//192.168.0.120/works /home/shinn/smb cifs credentials=/home/shinn/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,vers=3.0 0 0'
 # ---------------------------------- end alias-----------------------------------
