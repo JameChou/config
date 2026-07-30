@@ -1,6 +1,6 @@
 hl.config({
   animations = {
-    enabled = true,
+    enabled = false, -- 关闭所有的动画，动画其实是有点影响操作的，感觉不跟手
     bezier = {
       { "linear",        0,    0,    1,    1 },
       { "md3_standard",  0.2,  0,    0,    1 },
