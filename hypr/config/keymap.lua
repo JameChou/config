@@ -5,9 +5,9 @@ local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + Q", hl.dsp.window.kill())
-hl.bind(mainMod .. " + M",
-  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+-- hl.dsp.window.kill() -> force killing the session of window
+hl.bind(mainMod .. " + CONTROL + Q", hl.dsp.window.kill())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.workspace.toggle_special("special"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.window.move({ workspace = "special:special", follow = false }))
@@ -83,3 +83,58 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+local MAX_ZOOM = 3
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 1.5
+
+---@param offset number
+---@return nil
+local function zoom(offset)
+  local current = hl.get_config("cursor.zoom_factor")
+  if offset ~= nil then
+    current = current + offset
+  elseif current ~= MIN_ZOOM then
+    current = MIN_ZOOM
+  else
+    current = ZOOM_TOGGLE_FACTOR
+  end
+  current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+  hl.config({ cursor = { zoom_factor = current } })
+end
+
+hl.bind(mainMod .. " + Z", zoom)
+hl.bind(mainMod .. " + equal", function()
+  zoom(0.5)
+end)
+hl.bind(mainMod .. " + minus", function()
+  zoom(-0.5)
+end)
+
+-- workspace rule
+hl.bind(mainMod .. " + CONTROL + S", function()
+  local workspace = hl.get_active_workspace()
+  if hl.get_active_special_workspace() then
+    workspace = hl.get_active_special_workspace()
+  end
+
+  if workspace.special then
+    hl.workspace_rule({ workspace = tostring(workspace.name), layout = "scrolling" })
+  else
+    hl.workspace_rule({ workspace = tostring(workspace.id), layout = "scrolling" })
+  end
+end)
+
+
+hl.bind(mainMod .. " + CONTROL + D", function()
+  local workspace = hl.get_active_workspace()
+  if hl.get_active_special_workspace() then
+    workspace = hl.get_active_special_workspace()
+  end
+
+  if workspace.special then
+    hl.workspace_rule({ workspace = tostring(workspace.name), layout = "dwindle" })
+  else
+    hl.workspace_rule({ workspace = tostring(workspace.id), layout = "dwindle" })
+  end
+end)
