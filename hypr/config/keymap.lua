@@ -29,18 +29,8 @@ hl.bind(mainMod .. " + CONTROL + K", hl.dsp.window.swap({ direction = "u" }))
 
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("killall waybar || waybar"))
 
-hl.bind(mainMod .. " + CONTROL + mouse_down",
-  hl.dsp.exec_cmd(
-    [[hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') + 0.5}")]]))
-hl.bind(mainMod .. " + CONTROL + mouse_up",
-  hl.dsp.exec_cmd(
-    [[hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') - 0.5}")]]))
-
 hl.bind(mainMod .. " + comma", hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. " + period", hl.dsp.focus({ workspace = "m+1" }))
-
-hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.window.move({ into_group = "l" }))
-hl.bind(mainMod .. " + SHIFT + period", hl.dsp.window.move({ into_group = "r" }))
 
 hl.bind(mainMod .. " + CONTROL + comma", hl.dsp.focus({ monitor = "+1" }))
 hl.bind(mainMod .. " + CONTROL + period", hl.dsp.focus({ monitor = "-1" }))
@@ -138,3 +128,20 @@ hl.bind(mainMod .. " + CONTROL + D", function()
     hl.workspace_rule({ workspace = tostring(workspace.id), layout = "dwindle" })
   end
 end)
+
+
+hl.bind(mainMod .. " + CONTROL + M", function()
+  local workspace = hl.get_active_workspace()
+  if hl.get_active_special_workspace() then
+    workspace = hl.get_active_special_workspace()
+  end
+
+  if workspace.special then
+    hl.workspace_rule({ workspace = tostring(workspace.name), layout = "monocle" })
+  else
+    hl.workspace_rule({ workspace = tostring(workspace.id), layout = "monocle" })
+  end
+end)
+
+hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("cycleprev"))
+hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("cyclenext"))
