@@ -5,6 +5,13 @@ hl.monitor({
   scale = 1.875,
 })
 
+hl.monitor({
+  output = "desc:Tianma Microelectronics Ltd. TL160MDMP01",
+  mode = "3072x1920@165",
+  position = "0x0",
+  scale = 1.5,
+})
+
 -- mirror eDP-1
 -- hl.monitor({
 --   output = "HDMI-A-2",
