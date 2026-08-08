@@ -13,13 +13,13 @@ hl.monitor({
 })
 
 -- mirror eDP-1
--- hl.monitor({
---   output = "HDMI-A-2",
---   mode = "1920x1080@60",
---   position = "auto",
---   scale = 1,
---   mirror = "eDP-1",
--- })
+hl.monitor({
+  output = "desc:Hisense Electric Co. Ltd. HDMI 0x00000001",
+  mode = "1920x1080@60",
+  position = "auto",
+  scale = 1,
+  mirror = "eDP-1",
+})
 
 hl.monitor({
   output = "desc:ViewSonic Corporation VX2780-4K-hd VP9193140917",
