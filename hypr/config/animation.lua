@@ -1,36 +1,38 @@
 hl.config({
   animations = {
-    enabled = false, -- 关闭所有的动画，动画其实是有点影响操作的，感觉不跟手
-    bezier = {
-      { "linear",        0,    0,    1,    1 },
-      { "md3_standard",  0.2,  0,    0,    1 },
-      { "md3_decel",     0.05, 0.7,  0.1,  1 },
-      { "md3_accel",     0.3,  0,    0.8,  0.15 },
-      { "overshot",      0.05, 0.9,  0.1,  1.1 },
-      { "crazyshot",     0.1,  1.5,  0.76, 0.92 },
-      { "hyprnostretch", 0.05, 0.9,  0.1,  1.0 },
-      { "menu_decel",    0.1,  1,    0,    1 },
-      { "menu_accel",    0.38, 0.04, 1,    0.07 },
-      { "easeInOutCirc", 0.85, 0,    0.15, 1 },
-      { "easeOutCirc",   0,    0.55, 0.45, 1 },
-      { "easeOutExpo",   0.16, 1,    0.3,  1 },
-      { "softAcDecel",   0.26, 0.26, 0.15, 1 },
-      { "md2",           0.4,  0,    0.2,  1 },
-    },
-    animation = {
-      { "windows",          1, 3,   "md3_decel",  "popin 60%" },
-      { "windowsIn",        1, 3,   "md3_decel",  "popin 60%" },
-      { "windowsOut",       1, 3,   "md3_accel",  "popin 60%" },
-      { "border",           1, 10,  "default" },
-      { "fade",             1, 3,   "md3_decel" },
-      { "layersIn",         1, 3,   "menu_decel", "slide" },
-      { "layersOut",        1, 1.6, "menu_accel" },
-      { "fadeLayersIn",     1, 2,   "menu_decel" },
-      { "fadeLayersOut",    1, 4.5, "menu_accel" },
-      { "workspaces",       0, 7,   "menu_decel", "slide" },
-      { "specialWorkspace", 1, 3,   "md3_decel",  "slidevert" },
-    },
+    enabled = true
   },
 })
 
-hl.animation({ leaf = "workspaces", enabled = false, speed = 8, bezier = "my_epic_bezier" })
+hl.curve("snappy", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1 } } })      -- 打开/移动，几乎零延迟起步
+hl.curve("snappy_out", { type = "bezier", points = { { 0.25, 0.7 }, { 0.35, 1 } } }) -- 关闭/淡出，同样立即响应
+
+-- 窗口打开/移动/关闭
+hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "snappy" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 1.8, bezier = "snappy", style = "popin 85%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.5, bezier = "snappy_out", style = "popin 85%" })
+
+-- 淡入淡出
+hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "snappy" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.8, bezier = "snappy" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.5, bezier = "snappy_out" })
+
+-- 图层（rofi、wlogout 等）
+hl.animation({ leaf = "layers", enabled = true, speed = 2, bezier = "snappy" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 2, bezier = "snappy", style = "slide" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "snappy_out" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.8, bezier = "snappy" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.5, bezier = "snappy_out" })
+
+-- 其他
+hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "snappy" })
+hl.animation({ leaf = "zoomFactor", enabled = true, speed = 4, bezier = "snappy" })
+
+-- workspace 切换：不要动画，切过去就是切过去
+-- enabled = false 时 speed/bezier 不起作用，随便填
+hl.animation({ leaf = "workspaces", enabled = false, speed = 1, bezier = "snappy", style = "fade" })
+hl.animation({ leaf = "workspacesIn", enabled = false, speed = 1, bezier = "snappy", style = "fade" })
+hl.animation({ leaf = "workspacesOut", enabled = false, speed = 1, bezier = "snappy", style = "fade" })
+
+-- scratchpad 不算 workspace 切换，保留一个快速的纵向滑入
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2, bezier = "snappy", style = "slidevert" })
